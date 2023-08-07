@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     return gradientView
   }()
 
+  let myButton = CustomButton(customTitle: "Старт игры")
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
@@ -26,6 +28,7 @@ class MainViewController: UIViewController {
 
   private func subviews() {
     view.addSubview(gradientView)
+    view.addSubview(myButton)
   }
 
   func setupConstraints() {
@@ -33,7 +36,10 @@ class MainViewController: UIViewController {
       gradientView.topAnchor.constraint(equalTo: view.topAnchor),
       gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    ])
+      gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+      myButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
+      myButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+      ])
   }
 }
