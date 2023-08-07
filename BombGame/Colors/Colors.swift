@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
   static var purpleColor: UIColor {
-    UIColor(red: 0.129, green: 0.188, blue: 0.655, alpha: 1)
+      return UIColor(red: 0.506, green: 0.188, blue: 0.655, alpha: 1)
   }
   
   static var yellowLabel: UIColor {
