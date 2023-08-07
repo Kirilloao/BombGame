@@ -20,6 +20,7 @@
 		57632A742A8061F400410D1C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A732A8061F400410D1C /* RulesViewController.swift */; };
 		57632A782A80624800410D1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A772A80624800410D1C /* SettingsViewController.swift */; };
 		57632A7B2A80635200410D1C /* tikane-taymera-bombyi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */; };
+		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		57632A772A80624800410D1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57632A792A80628A00410D1C /* bomb_animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bomb_animation.mp4; sourceTree = "<group>"; };
 		57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tikane-taymera-bombyi.mp3"; sourceTree = "<group>"; };
+		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				57632A792A80628A00410D1C /* bomb_animation.mp4 */,
 				57632A542A805CFB00410D1C /* Assets.xcassets */,
 				57632A562A805CFB00410D1C /* LaunchScreen.storyboard */,
+				57632A7C2A81742300410D1C /* CustomButton.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				57632A742A8061F400410D1C /* RulesViewController.swift in Sources */,
 				57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */,
+				57632A7D2A81742300410D1C /* CustomButton.swift in Sources */,
 				57632A6E2A8061C600410D1C /* CategoryViewController.swift in Sources */,
 				57632A722A8061E900410D1C /* GameEndViewController.swift in Sources */,
 				57632A4E2A805CF900410D1C /* SceneDelegate.swift in Sources */,
