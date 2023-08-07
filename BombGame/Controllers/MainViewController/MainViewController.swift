@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
   private lazy var gradientView: GradientView = {
     let gradientView = GradientView(frame: view.bounds)
     gradientView.translatesAutoresizingMaskIntoConstraints = false
+    
     return gradientView
   }()
 
