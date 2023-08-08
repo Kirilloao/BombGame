@@ -22,6 +22,7 @@
 		57632A782A80624800410D1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A772A80624800410D1C /* SettingsViewController.swift */; };
 		57632A7B2A80635200410D1C /* tikane-taymera-bombyi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */; };
 		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
+		57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A872A82AB1600410D1C /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		57632A792A80628A00410D1C /* bomb_animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bomb_animation.mp4; sourceTree = "<group>"; };
 		57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tikane-taymera-bombyi.mp3"; sourceTree = "<group>"; };
 		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		57632A872A82AB1600410D1C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				57632A5F2A805DA700410D1C /* Colors.swift */,
+				57632A872A82AB1600410D1C /* NavigationBar.swift */,
 				57632A612A805DC900410D1C /* GradientView.swift */,
 			);
 			path = Colors;
@@ -259,6 +262,7 @@
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
 				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
+				57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				57632A742A8061F400410D1C /* RulesViewController.swift in Sources */,
