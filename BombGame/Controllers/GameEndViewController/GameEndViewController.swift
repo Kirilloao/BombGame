@@ -39,14 +39,14 @@ class GameEndViewController: UIViewController {
     }()
     
     private lazy var descriptionTaskLabel: UILabel = {
-        let secondLabel = createLabel(
+        let label = createLabel(
             with: "В следующем раунде после каждого ответа хлопать в ладоши",
             textColor: .purpleLabel,
             font: UIFont.boldSystemFont(ofSize: 20),
             lines: 0
         )
         
-        return secondLabel
+        return label
     }()
     
     private lazy var anotherTaskButton: CustomButton = {
@@ -60,8 +60,6 @@ class GameEndViewController: UIViewController {
         
         return taskButton
     }()
-    
-    
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
