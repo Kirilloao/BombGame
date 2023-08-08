@@ -172,6 +172,6 @@ extension GameEndViewController {
         ]
         navigationController?.navigationBar.standardAppearance = navBarAppearance
         
-        title = "Игра"
+        setupNavigationBar(title: "Игра")
     }
 }
