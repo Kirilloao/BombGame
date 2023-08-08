@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F0F62A8266EE005B64FA /* Punishment.swift */; };
 		57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4B2A805CF900410D1C /* AppDelegate.swift */; };
 		57632A4E2A805CF900410D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4D2A805CF900410D1C /* SceneDelegate.swift */; };
 		57632A502A805CF900410D1C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4F2A805CF900410D1C /* MainViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3CA0F0F62A8266EE005B64FA /* Punishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Punishment.swift; sourceTree = "<group>"; };
 		57632A482A805CF900410D1C /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57632A4B2A805CF900410D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57632A4D2A805CF900410D1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		57632A662A80607D00410D1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3CA0F0F62A8266EE005B64FA /* Punishment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 			files = (
 				57632A702A8061D800410D1C /* GameViewController.swift in Sources */,
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
+				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,

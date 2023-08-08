@@ -21,7 +21,7 @@ class GameEndViewController: UIViewController {
     
     private lazy var taskLabel: UILabel = {
         let label = createLabel(
-            with: "Проигравший выполянет задание",
+            with: "Проигравший выполняет задание",
             textColor: .black,
             font: UIFont.boldSystemFont(ofSize: 25),
             lines: 2
@@ -40,7 +40,7 @@ class GameEndViewController: UIViewController {
     
     private lazy var descriptionTaskLabel: UILabel = {
         let label = createLabel(
-            with: "В следующем раунде после каждого ответа хлопать в ладоши",
+            with: punishment.getRandomPunishment(),
             textColor: .purpleLabel,
             font: UIFont.boldSystemFont(ofSize: 20),
             lines: 0
@@ -52,6 +52,12 @@ class GameEndViewController: UIViewController {
     private lazy var anotherTaskButton: CustomButton = {
         let taskButton = CustomButton(customTitle: "Другое Задание")
         
+        taskButton.addTarget(
+            self,
+            action: #selector(changeQuestion),
+            for: .touchUpInside
+        )
+        
         return taskButton
     }()
     
@@ -60,6 +66,9 @@ class GameEndViewController: UIViewController {
         
         return taskButton
     }()
+    
+    // MARK: - Private Properties
+    private let punishment = Punishment()
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -70,6 +79,11 @@ class GameEndViewController: UIViewController {
         setupConstraints()
         setupNavigationBar()
         createStackView()
+    }
+    
+    // MARK: - Actions
+    @objc private func changeQuestion() {
+        descriptionTaskLabel.text = punishment.getRandomPunishment()
     }
     
     // MARK: - Private Methods
@@ -88,14 +102,14 @@ class GameEndViewController: UIViewController {
             gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // setup constraints to firstLabel
+        // setup constraints to taskLabel
         NSLayoutConstraint.activate([
             taskLabel.heightAnchor.constraint(equalToConstant: 80)
         ])
         
-        // setup constraints to secondLabel
+        // setup constraints to descriptionTaskLabel
         NSLayoutConstraint.activate([
-            descriptionTaskLabel.heightAnchor.constraint(equalToConstant: 50)
+            descriptionTaskLabel.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
     
