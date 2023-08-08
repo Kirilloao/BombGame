@@ -22,7 +22,6 @@
 		57632A7B2A80635200410D1C /* tikane-taymera-bombyi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */; };
 		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
 		57632A842A825F6500410D1C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A832A825F6500410D1C /* NavigationBar.swift */; };
-		57632A862A8263FD00410D1C /* RulesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A852A8263FD00410D1C /* RulesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +43,6 @@
 		57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tikane-taymera-bombyi.mp3"; sourceTree = "<group>"; };
 		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		57632A832A825F6500410D1C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
-		57632A852A8263FD00410D1C /* RulesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				57632A732A8061F400410D1C /* RulesViewController.swift */,
-				57632A852A8263FD00410D1C /* RulesTableViewCell.swift */,
 			);
 			path = RulesViewController;
 			sourceTree = "<group>";
@@ -258,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57632A862A8263FD00410D1C /* RulesTableViewCell.swift in Sources */,
 				57632A702A8061D800410D1C /* GameViewController.swift in Sources */,
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
