@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
-        
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func subviews() {
@@ -109,10 +109,11 @@ class MainViewController: UIViewController {
         ])
     }
     
-    @objc func startButtonPressed() {
-//        let gameVC = GameViewController()
-//        present(gameVC, animated: true)
-    }
+  @objc func startButtonPressed() {
+    let gameVC = GameEndViewController()
+    self.navigationController?.pushViewController(gameVC, animated: true)
+  }
+
 
     @objc func categoryButtonPressed() {
 //        let categoryVC = CategoryViewController()

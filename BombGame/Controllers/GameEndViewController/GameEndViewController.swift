@@ -13,7 +13,7 @@ class GameEndViewController: UIViewController {
     // MARK: - UI properties
     private var mainStackView = UIStackView()
     
-  private lazy var gradientView: GradientView = {
+    private lazy var gradientView: GradientView = {
         let gradientView = GradientView()
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         return gradientView
@@ -78,7 +78,8 @@ class GameEndViewController: UIViewController {
         
         setupConstraints()
         createStackView()
-      title = "Игра"
+        navigationItem.title = "Main"
+      navigationController?.isNavigationBarHidden = false
     }
     
     // MARK: - Actions
