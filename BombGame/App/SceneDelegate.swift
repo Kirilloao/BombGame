@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     navigationController.navigationBar.isHidden = true
     navigationController.navigationBar.titleTextAttributes = [
       NSAttributedString.Key.foregroundColor: UIColor.purpleColor,
-      NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30)
+      NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)
     ]
     
     window = UIWindow(windowScene: windowScene)

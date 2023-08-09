@@ -41,7 +41,8 @@ class GameViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
-        navigationItem.title = "Игра"
+        addRightNavButton()
+      navigationItem.title = "Игра"
     }
     
     
@@ -75,7 +76,10 @@ class GameViewController: UIViewController {
         playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     }
     
-    
+  func addRightNavButton() {
+    let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(playButtonPressed))
+    navigationItem.rightBarButtonItem = rightBarButton
+  }
     //MARK: Play video
     
     
