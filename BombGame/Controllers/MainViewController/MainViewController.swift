@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
-        
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func subviews() {
@@ -91,49 +91,51 @@ class MainViewController: UIViewController {
             bombImage.widthAnchor.constraint(equalToConstant: 330),
             bombImage.heightAnchor.constraint(equalToConstant: 350),
             
-            rulesButton.widthAnchor.constraint(equalToConstant: 75),
-            rulesButton.heightAnchor.constraint(equalToConstant: 75),
+//            rulesButton.widthAnchor.constraint(equalToConstant: 75),
+//            rulesButton.heightAnchor.constraint(equalToConstant: 75),
             rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             rulesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
-            settingsButton.widthAnchor.constraint(equalToConstant: 75),
-            settingsButton.heightAnchor.constraint(equalToConstant: 75),
+//            settingsButton.widthAnchor.constraint(equalToConstant: 75),
+//            settingsButton.heightAnchor.constraint(equalToConstant: 75),
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
             
         ])
     }
-    
-    @objc func startButtonPressed() {
-        let gameVC = GameViewController()
-        present(gameVC, animated: true)
+
+  @objc func startButtonPressed() {
+    let gameVC = GameEndViewController()
+    self.navigationController?.pushViewController(gameVC, animated: true)
+  }
+
+
+    @objc func categoryButtonPressed() {
+//        let categoryVC = CategoryViewController()
+//
+//        present(categoryVC, animated: true)
     }
-    
-    //    @objc func categoryButtonPressed() {
-    //        let categoryVC = CategoryViewController()
-    //
-    //        present(categoryVC, animated: true)
-    //    }
-    //
-    //        @objc func rulesButtonPressed() {
-    //            let rulesVC = RulesViewController()
-    //
-    //            present(rulesVC, animated: true)
-    //        }
-    //
-    //        @objc func settingsButtonPressed() {
-    //            let settingsVC = SettingsViewController()
-    //
-    //            present(settingsVC, animated: true)
-    //        }
-    
+
+        @objc func rulesButtonPressed() {
+//            let rulesVC = RulesViewController()
+//
+//            present(rulesVC, animated: true)
+        }
+
+        @objc func settingsButtonPressed() {
+//            let settingsVC = SettingsViewController()
+//
+//            present(settingsVC, animated: true)
+        }
+
     func setup() {
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
         //        categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
         //        rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
         //        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
-        
-        rulesButton.layer.cornerRadius = 38
-        settingsButton.layer.cornerRadius = 38
+     
+//        rulesButton.layer.cornerRadius = 38
+//        settingsButton.layer.cornerRadius = 38
+
     }
 }
