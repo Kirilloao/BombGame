@@ -41,6 +41,7 @@ class GameViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
+        navigationItem.title = "Игра"
     }
     
     

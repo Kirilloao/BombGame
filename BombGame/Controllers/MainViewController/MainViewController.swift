@@ -53,9 +53,9 @@ class MainViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
-        navigationController?.isNavigationBarHidden = true
+
     }
-    
+  
     private func subviews() {
         view.addSubview(gradientView)
         view.addSubview(startButton)
@@ -111,9 +111,8 @@ class MainViewController: UIViewController {
 
 
     @objc func categoryButtonPressed() {
-//        let categoryVC = CategoryViewController()
-//
-//        present(categoryVC, animated: true)
+      let gameVC = GameViewController()
+      self.navigationController?.pushViewController(gameVC, animated: true)
     }
 
         @objc func rulesButtonPressed() {
@@ -130,7 +129,7 @@ class MainViewController: UIViewController {
 
     func setup() {
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
-        //        categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
+                categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
         //        rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
         //        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
      

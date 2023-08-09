@@ -8,21 +8,28 @@
 import Foundation
 import UIKit
 
-//extension UIViewController {
-//    func setupNavigationBar(title: String) {
-//        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(goBack))
-//        backButton.tintColor = .blackBackButton
-//        navigationItem.leftBarButtonItem = backButton
-//        navigationItem.title = title
-//
-//        navigationController?.navigationBar.titleTextAttributes = [
-//            NSAttributedString.Key.foregroundColor: UIColor.purpleLabel,
-//            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 30)
-//        ]
-//    }
-//
-//    @objc private func goBack() {
-//        navigationController?.popViewController(animated: true)
-//    }
-//}
-//
+class CustomNavigationController: UINavigationController, UINavigationControllerDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.delegate = self
+    }
+
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        if viewController is MainViewController {
+            setNavigationBarHidden(true, animated: animated)
+        } else {
+            setNavigationBarHidden(false, animated: animated)
+        }
+
+        if !(viewController is MainViewController) {
+            let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(goBack))
+            backButton.tintColor = .blackBackButton
+            viewController.navigationItem.leftBarButtonItem = backButton
+        }
+    }
+
+    @objc private func goBack() {
+        self.popViewController(animated: true)
+    }
+}

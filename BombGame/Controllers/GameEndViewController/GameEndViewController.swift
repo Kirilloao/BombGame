@@ -78,8 +78,7 @@ class GameEndViewController: UIViewController {
         
         setupConstraints()
         createStackView()
-        navigationItem.title = "Main"
-      navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "Игра"
     }
     
     // MARK: - Actions
