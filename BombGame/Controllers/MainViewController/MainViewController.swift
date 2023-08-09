@@ -96,13 +96,13 @@ class MainViewController: UIViewController {
             bombImage.widthAnchor.constraint(equalToConstant: 330),
             bombImage.heightAnchor.constraint(equalToConstant: 350),
             
-            rulesButton.widthAnchor.constraint(equalToConstant: 75),
-            rulesButton.heightAnchor.constraint(equalToConstant: 75),
+//            rulesButton.widthAnchor.constraint(equalToConstant: 75),
+//            rulesButton.heightAnchor.constraint(equalToConstant: 75),
             rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             rulesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
             
-            settingsButton.widthAnchor.constraint(equalToConstant: 75),
-            settingsButton.heightAnchor.constraint(equalToConstant: 75),
+//            settingsButton.widthAnchor.constraint(equalToConstant: 75),
+//            settingsButton.heightAnchor.constraint(equalToConstant: 75),
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
             
@@ -110,26 +110,26 @@ class MainViewController: UIViewController {
     }
     
     @objc func startButtonPressed() {
-        let gameVC = GameViewController()
-        present(gameVC, animated: true)
+//        let gameVC = GameViewController()
+//        present(gameVC, animated: true)
     }
 
     @objc func categoryButtonPressed() {
-        let categoryVC = CategoryViewController()
-
-        present(categoryVC, animated: true)
+//        let categoryVC = CategoryViewController()
+//
+//        present(categoryVC, animated: true)
     }
-    
+
         @objc func rulesButtonPressed() {
-            let rulesVC = RulesViewController()
-    
-            present(rulesVC, animated: true)
+//            let rulesVC = RulesViewController()
+//
+//            present(rulesVC, animated: true)
         }
-    
+
         @objc func settingsButtonPressed() {
-            let settingsVC = SettingsViewController()
-    
-            present(settingsVC, animated: true)
+//            let settingsVC = SettingsViewController()
+//
+//            present(settingsVC, animated: true)
         }
     
     func setup() {
@@ -138,8 +138,8 @@ class MainViewController: UIViewController {
         rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
         settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
         
-        rulesButton.layer.cornerRadius = 38
-        settingsButton.layer.cornerRadius = 38
+//        rulesButton.layer.cornerRadius = 38
+//        settingsButton.layer.cornerRadius = 38
         
     
         
