@@ -23,6 +23,8 @@
 		57632A7B2A80635200410D1C /* tikane-taymera-bombyi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */; };
 		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
 		57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A872A82AB1600410D1C /* NavigationBar.swift */; };
+		578BE8B62A83C01000C0C0DF /* bombLong.gif in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8B42A83C01000C0C0DF /* bombLong.gif */; };
+		578BE8B72A83C01000C0C0DF /* bombShort.gif in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8B52A83C01000C0C0DF /* bombShort.gif */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,10 +44,11 @@
 		57632A712A8061E900410D1C /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
 		57632A732A8061F400410D1C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		57632A772A80624800410D1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		57632A792A80628A00410D1C /* bomb_animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = bomb_animation.mp4; sourceTree = "<group>"; };
 		57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "tikane-taymera-bombyi.mp3"; sourceTree = "<group>"; };
 		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		57632A872A82AB1600410D1C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		578BE8B42A83C01000C0C0DF /* bombLong.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombLong.gif; sourceTree = "<group>"; };
+		578BE8B52A83C01000C0C0DF /* bombShort.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombShort.gif; sourceTree = "<group>"; };
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,7 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				57632A7A2A80635200410D1C /* tikane-taymera-bombyi.mp3 */,
-				57632A792A80628A00410D1C /* bomb_animation.mp4 */,
+				578BE8B42A83C01000C0C0DF /* bombLong.gif */,
+				578BE8B52A83C01000C0C0DF /* bombShort.gif */,
 				57632A542A805CFB00410D1C /* Assets.xcassets */,
 				57632A562A805CFB00410D1C /* LaunchScreen.storyboard */,
 				57632A7C2A81742300410D1C /* CustomButton.swift */,
@@ -248,6 +252,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				578BE8B62A83C01000C0C0DF /* bombLong.gif in Resources */,
+				578BE8B72A83C01000C0C0DF /* bombShort.gif in Resources */,
 				57632A7B2A80635200410D1C /* tikane-taymera-bombyi.mp3 in Resources */,
 				57632A582A805CFB00410D1C /* LaunchScreen.storyboard in Resources */,
 				57632A552A805CFB00410D1C /* Assets.xcassets in Resources */,
