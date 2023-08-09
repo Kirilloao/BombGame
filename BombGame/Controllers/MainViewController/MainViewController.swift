@@ -31,7 +31,6 @@ class MainViewController: UIViewController {
         image.image = UIImage(named: "bomb")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
-        
     }()
     
     private lazy var titleLabel: UILabel = {
@@ -47,10 +46,6 @@ class MainViewController: UIViewController {
     let categoryButton = CustomButton(customTitle: "Категории")
     let rulesButton = CustomRoundButton(systemImageName: "gearshape")
     let settingsButton = CustomRoundButton(systemImageName: "questionmark")
-    
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,35 +108,32 @@ class MainViewController: UIViewController {
         let gameVC = GameViewController()
         present(gameVC, animated: true)
     }
-
-    @objc func categoryButtonPressed() {
-        let categoryVC = CategoryViewController()
-
-        present(categoryVC, animated: true)
-    }
     
-        @objc func rulesButtonPressed() {
-            let rulesVC = RulesViewController()
-    
-            present(rulesVC, animated: true)
-        }
-    
-        @objc func settingsButtonPressed() {
-            let settingsVC = SettingsViewController()
-    
-            present(settingsVC, animated: true)
-        }
+    //    @objc func categoryButtonPressed() {
+    //        let categoryVC = CategoryViewController()
+    //
+    //        present(categoryVC, animated: true)
+    //    }
+    //
+    //        @objc func rulesButtonPressed() {
+    //            let rulesVC = RulesViewController()
+    //
+    //            present(rulesVC, animated: true)
+    //        }
+    //
+    //        @objc func settingsButtonPressed() {
+    //            let settingsVC = SettingsViewController()
+    //
+    //            present(settingsVC, animated: true)
+    //        }
     
     func setup() {
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
-        categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
-        rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
-        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+        //        categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
+        //        rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
+        //        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
         
         rulesButton.layer.cornerRadius = 38
         settingsButton.layer.cornerRadius = 38
-        
-    
-        
     }
 }
