@@ -105,13 +105,13 @@ class MainViewController: UIViewController {
     }
 
   @objc func startButtonPressed() {
-    let gameVC = GameEndViewController()
+    let gameVC = GameViewController()
     self.navigationController?.pushViewController(gameVC, animated: true)
   }
 
 
     @objc func categoryButtonPressed() {
-      let gameVC = GameViewController()
+      let gameVC = CategoryViewContoller()
       self.navigationController?.pushViewController(gameVC, animated: true)
     }
 
