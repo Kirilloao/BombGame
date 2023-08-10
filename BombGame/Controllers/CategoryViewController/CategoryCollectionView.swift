@@ -87,7 +87,7 @@ extension CategoryCollectionView: UICollectionViewDelegate {
                DataManager.shared.arrSelectedIndex.append(indexPath)
                DataManager.shared.arrSelectedCategories.append(strData)
            }
-//        print(DataManager.shared.arrSelectedCategories)
+        print(DataManager.shared.arrSelectedCategories)
            collectionView.reloadData()
     }
 }

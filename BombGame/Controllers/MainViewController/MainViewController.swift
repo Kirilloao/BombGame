@@ -111,7 +111,7 @@ class MainViewController: UIViewController {
 
 
     @objc func categoryButtonPressed() {
-      let gameVC = GameViewController()
+      let gameVC = CategoryViewContoller()
       self.navigationController?.pushViewController(gameVC, animated: true)
     }
 
