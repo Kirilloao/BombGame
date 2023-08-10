@@ -49,8 +49,6 @@ class GameViewController: UIViewController {
         subviews()
         setupConstraints()
         setupGIFs()
-        playBGSound()
-        playBombSound()
     }
     
     
@@ -80,6 +78,7 @@ class GameViewController: UIViewController {
         print("Play button pressed")
         playBGSound()
         startGIFLoop()
+        playTimerSound()
         textLabel.text = questions[Int.random(in: 0...2)]
         
     }
@@ -130,7 +129,7 @@ class GameViewController: UIViewController {
     
     private func startGIFLoop() {
         bombShortImageView.startAnimating()
-        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(switchToLongGIF), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 29.1, target: self, selector: #selector(switchToLongGIF), userInfo: nil, repeats: false)
     }
     
     @objc private func switchToLongGIF() {
@@ -156,11 +155,12 @@ class GameViewController: UIViewController {
             do {
                 player = try AVAudioPlayer(contentsOf: soundPath)
                 player?.numberOfLoops = -1
+                player?.volume = 0.5
                 player?.prepareToPlay()
             } catch {
                 print("Ошибка создания цикла \(error)")
             }
-            player?.volume = 0.5
+            
         }
         
         player!.play()
@@ -170,7 +170,7 @@ class GameViewController: UIViewController {
         
     }
     
-    func playBombSound() {
+    func playTimerSound() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 20) { [weak self] in
             if let soundPath = Bundle.main.url(forResource: "timer1", withExtension: "mp3") {
                 do {
