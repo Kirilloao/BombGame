@@ -9,6 +9,20 @@ import UIKit
 import AVKit
 import AVFoundation
 
+/* Ситуация:
+ 1. Ниже приведены заметки по новым добалениям
+ 2. Код немного грязный, завтра еще подумаю над тем, как все привести в порядок
+ 3. Есть баг, который не могу понять из-за чего или это глюк, после нажатия паузы периодически включается звук
+ По задачам:
+ 1. "во viewWillAppear добавить остановку таймера и музыки (если уходим со страницы по навбару)." – я это тоже не понял, как реализовать, в принципе можно, но где этот viewWillAppear?))
+ */
+// Релизовал паузу через enum, я еще не особо изучал эту фичу, но как-то получилось сделать
+enum GameState {
+    case idle
+    case playing
+    case paused
+}
+
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
     
     var playerBG: AVAudioPlayer?
@@ -19,8 +33,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     var playerViewController: AVPlayerViewController!
     var bombShortImageView: UIImageView!
     var bombLongImageView: UIImageView!
+    var gameState: GameState = .idle
     
-    
+    // Думаю по части логики работы по подтягиванию текста, приблизительно понимаю, что нужно сделать, но полной картины не имею
     let questions = ["Назавите города на Б", "Как называется самое глубокое озеро?", "Самая маленькая страна в мире?"]
     
     
@@ -43,6 +58,19 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         return textLabel
     } ()
     
+    let textLabelPause: UILabel = {
+        let textLabelPause = UILabel()
+        textLabelPause.text = "ПАУЗА"
+        textLabelPause.frame = CGRect(x: 24, y: 127, width: 329, height: 200)
+        textLabelPause.numberOfLines = 0
+        textLabelPause.lineBreakMode = .byWordWrapping
+        textLabelPause.textColor = .purpleLabel
+        textLabelPause.textAlignment = .center
+        textLabelPause.font = UIFont.boldSystemFont(ofSize: 35)
+        return textLabelPause
+    } ()
+
+    
     let playButton = CustomButton(customTitle: "Запустить")
     
     override func viewDidLoad() {
@@ -50,6 +78,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         playerTimer?.delegate = self
         bombSoundPlayer?.delegate = self
         navigationItem.title = "Игра"
+        textLabelPause.isHidden = true
         addRightNavButton()
         setup()
         subviews()
@@ -61,6 +90,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     private func subviews() {
         view.addSubview(gradientView)
         view.addSubview(textLabel)
+        view.addSubview(textLabelPause)
         view.addSubview(playButton)
     }
     func setupConstraints() {
@@ -81,18 +111,50 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     //MARK: Buttons
     
     @objc func playButtonPressed() {
-        print("Play button pressed")
-        playBGSound()
-        playTimerSound()
-        startGIFLoop()
-        playButton.isHidden = true
-        textLabel.text = questions[Int.random(in: 0...2)]
-        //        startMainTimer()
+        if gameState == .idle || gameState == .paused {
+            playBGSound()
+            playTimerSound()
+            startGIFLoop()
+            textLabel.text = questions[Int.random(in: 0...2)]
+            playButton.isHidden = true
+            gameState = .playing
+        }
+        //        print("Play button pressed")
+        //        playBGSound()
+        //        playTimerSound()
+        //        startGIFLoop()
+        //        playButton.isHidden = true
+        //        textLabel.text = questions[Int.random(in: 0...2)]
+        
         
     }
     
     @objc func pauseButtonPressed() {
-        print("text")
+        if gameState == .playing {
+            playerBG?.pause()
+            playerTimer?.pause()
+            bombSoundPlayer?.pause()
+            bombShortImageView.layer.pauseAnimation()
+            bombLongImageView.layer.pauseAnimation()
+            gameState = .paused
+            textLabel.isHidden = true
+            playButton.isHidden = true
+            bombShortImageView.isHidden = true
+            bombLongImageView.isHidden = true
+            textLabelPause.isHidden = false
+        } else if gameState == .paused {
+            playerBG?.play()
+            playerTimer?.play()
+            bombSoundPlayer?.play()
+            bombShortImageView.layer.resumeAnimation()
+            bombLongImageView.layer.resumeAnimation()
+            gameState = .playing
+            textLabel.isHidden = false
+            playButton.isHidden = false
+            bombShortImageView.isHidden = false
+            bombLongImageView.isHidden = false
+            textLabelPause.isHidden = true
+        }
     }
     
     func addRightNavButton() {
@@ -160,7 +222,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
     
     //MARK: Common timer
-    
+    // Не могу понять, как реализовать это, если честно, поэтому через enum сделал
     //    private func startMainTimer() {
     //        mainTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(mainTimerFired), userInfo: nil, repeats: true)
     //    }
@@ -175,7 +237,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     
     
     
-    //MARK: Play sound
+    //MARK: Play sounds
     
     func playBGSound() {
         if let soundPath = Bundle.main.url(forResource: "fon1", withExtension: "mp3") {
@@ -202,12 +264,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
                     self?.playerTimer = try AVAudioPlayer(contentsOf: soundPath)
                     self?.playerTimer?.numberOfLoops = -1
                     self?.playerTimer?.prepareToPlay()
-//                    self?.playerTimer?.delegate = self
+                    //                    self?.playerTimer?.delegate = self
                     
                     self?.playerTimer?.play()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
                         self?.playerTimer?.stop()
-                        self!.playBombSound() //
+                        self!.playBombSound() // никак не получилось реализовать через делегат, сделал вот так))
                     }
                 } catch {
                     print("Ошибка создания цикла \(error)")
@@ -215,8 +277,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
             }
         }
     }
-    
-    
     
     func playBombSound() {
         if let additionalSoundPath = Bundle.main.url(forResource: "vzriyiv1", withExtension: "mp3") {
@@ -256,3 +316,20 @@ extension UIImageView {
     }
 }
 
+//MARK: Extention for pause button
+extension CALayer {
+    func pauseAnimation() {
+        let pausedTime = convertTime(CACurrentMediaTime(), from: nil)
+        speed = 0.0
+        timeOffset = pausedTime
+    }
+    
+    func resumeAnimation() {
+        let pausedTime = timeOffset
+        speed = 1.0
+        timeOffset = 0.0
+        beginTime = 0.0
+        let timeSincePause = convertTime(CACurrentMediaTime(), from: nil) - pausedTime
+        beginTime = timeSincePause
+    }
+}
