@@ -11,7 +11,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
     
-    var audioPlayer: AVAudioPlayer?
+    var player: AVAudioPlayer?
     var playerViewController: AVPlayerViewController!
     var bombShortImageView: UIImageView!
     var bombLongImageView: UIImageView!
@@ -43,12 +43,14 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Игра"
+        addRightNavButton()
         setup()
         subviews()
         setupConstraints()
-        addRightNavButton()
-        navigationItem.title = "Игра"
         setupGIFs()
+        playBGSound()
+        playBombSound()
     }
     
     
@@ -76,6 +78,7 @@ class GameViewController: UIViewController {
     
     @objc func playButtonPressed() {
         print("Play button pressed")
+        playBGSound()
         startGIFLoop()
         textLabel.text = questions[Int.random(in: 0...2)]
         
@@ -147,25 +150,43 @@ class GameViewController: UIViewController {
     
     //MARK: Play sound
     
-    func playSound() {
-        
-        if let soundFilePath = Bundle.main.path(forResource: "yourSoundFile", ofType: "mp3") {
-            let soundFileURL = URL(fileURLWithPath: soundFilePath)
-            
+    func playBGSound() {
+        if let soundPath = Bundle.main.url(forResource: "fon1", withExtension: "mp3") {
+            //let soundURL = URL(fileURLWithPath: "\(soundPath)")
             do {
-                audioPlayer = try AVAudioPlayer(contentsOf: soundFileURL)
-                audioPlayer?.numberOfLoops = -1 // Значение -1 означает бесконечное зацикливание
-                audioPlayer?.prepareToPlay()
+                player = try AVAudioPlayer(contentsOf: soundPath)
+                player?.numberOfLoops = -1
+                player?.prepareToPlay()
             } catch {
-                print("Ошибка создания AVAudioPlayer: (error)")
+                print("Ошибка создания цикла \(error)")
             }
-        } else {
-            print("Файл звука не найден")
-        }
-        audioPlayer?.play() ... DispatchQueue.main.asyncAfter(deadline: .now() + 20) {
-            self.audioPlayer?.stop()
+            player?.volume = 0.5
         }
         
+        player!.play()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+            self.player!.stop()
+        }
+        
+    }
+    
+    func playBombSound() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 20) { [weak self] in
+            if let soundPath = Bundle.main.url(forResource: "timer1", withExtension: "mp3") {
+                do {
+                    self?.player = try AVAudioPlayer(contentsOf: soundPath)
+                    self?.player?.numberOfLoops = -1
+                    self?.player?.prepareToPlay()
+                    self?.player?.play()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                        self?.player?.stop()
+                    }
+                } catch {
+                    print("Ошибка создания цикла \(error)")
+                }
+            }
+        }
     }
     
     
