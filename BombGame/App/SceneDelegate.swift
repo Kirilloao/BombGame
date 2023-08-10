@@ -13,12 +13,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        let rootViewController = MainViewController()
+        let navigationController = CustomNavigationController(rootViewController: rootViewController)
 
+        navigationController.navigationBar.isHidden = true
+        navigationController.navigationBar.titleTextAttributes = [
+          NSAttributedString.Key.foregroundColor: UIColor.purpleColor,
+          NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 25)
+        ]
+        
         window = UIWindow(windowScene: windowScene)
-        let mainVC = GameEndViewController()
-        let navigationController = UINavigationController(rootViewController: mainVC)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-
     }
 }
