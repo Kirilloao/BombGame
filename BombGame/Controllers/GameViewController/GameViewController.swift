@@ -49,6 +49,8 @@ class GameViewController: UIViewController {
         subviews()
         setupConstraints()
         setupGIFs()
+        addRightNavButton()
+        navigationItem.title = "Игра"
     }
     
     
@@ -96,6 +98,11 @@ class GameViewController: UIViewController {
     }
     
     //MARK: Play GIF
+    func addRightNavButton() {
+        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(playButtonPressed))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+    //MARK: Play video
     
     private func setupGIFs() {
         
@@ -190,6 +197,16 @@ class GameViewController: UIViewController {
             }
         }
     }
+    
+    //    // Создайте плеер
+    //    player = AVPlayer(url: videoPath)
+    //    var player = AVPlayer(url: videoURL)
+    //
+    //    // Создайте плеер контроллер и присвойте плеер
+    //    var playerViewController = AVPlayerViewController()
+    //    playerViewController.player = player
+    //
+    
     
     
 }
