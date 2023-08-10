@@ -14,7 +14,7 @@ class GameEndViewController: UIViewController {
     private var mainStackView = UIStackView()
     
     private lazy var gradientView: GradientView = {
-        let gradientView = GradientView(frame: view.bounds)
+        let gradientView = GradientView()
         gradientView.translatesAutoresizingMaskIntoConstraints = false
         return gradientView
     }()
@@ -77,8 +77,8 @@ class GameEndViewController: UIViewController {
         addSubviews()
         
         setupConstraints()
-        setupNavigationBar()
         createStackView()
+        navigationItem.title = "Игра"
     }
     
     // MARK: - Actions
@@ -163,15 +163,15 @@ class GameEndViewController: UIViewController {
 }
 
 // MARK: - NavigationBar
-extension GameEndViewController {
-    private func setupNavigationBar() {
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.titleTextAttributes = [
-            .foregroundColor: UIColor.purpleLabel
-        ]
-        navigationController?.navigationBar.standardAppearance = navBarAppearance
-        
-        title = "Игра"
-    }
-}
+//extension GameEndViewController {
+//    private func setupNavigationBar() {
+//        let navBarAppearance = UINavigationBarAppearance()
+//        
+//        navBarAppearance.titleTextAttributes = [
+//            .foregroundColor: UIColor.purpleLabel
+//        ]
+//        navigationController?.navigationBar.standardAppearance = navBarAppearance
+//        
+//        title = "Игра"
+//    }
+//}
