@@ -42,7 +42,7 @@ class GameViewController: UIViewController {
         subviews()
         setupConstraints()
         addRightNavButton()
-      navigationItem.title = "Игра"
+        navigationItem.title = "Игра"
     }
     
     
@@ -76,24 +76,24 @@ class GameViewController: UIViewController {
         playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     }
     
-  func addRightNavButton() {
-    let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(playButtonPressed))
-    navigationItem.rightBarButtonItem = rightBarButton
-  }
+    func addRightNavButton() {
+        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(playButtonPressed))
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
     //MARK: Play video
     
     
     let videoPath = Bundle.main.path(forResource: "bomb_animation", ofType: "mp4")
     
-//    // Создайте плеер
-//    player = AVPlayer(url: videoPath)
-//    var player = AVPlayer(url: videoURL)
-//
-//    // Создайте плеер контроллер и присвойте плеер
-//    var playerViewController = AVPlayerViewController()
-//    playerViewController.player = player
-//
-
-
+    //    // Создайте плеер
+    //    player = AVPlayer(url: videoPath)
+    //    var player = AVPlayer(url: videoURL)
+    //
+    //    // Создайте плеер контроллер и присвойте плеер
+    //    var playerViewController = AVPlayerViewController()
+    //    playerViewController.player = player
+    //
+    
+    
     
 }
