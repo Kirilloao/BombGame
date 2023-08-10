@@ -44,8 +44,8 @@ class MainViewController: UIViewController {
     
     let startButton = CustomButton(customTitle: "Старт игры")
     let categoryButton = CustomButton(customTitle: "Категории")
-    let rulesButton = CustomRoundButton(systemImageName: "gearshape")
-    let settingsButton = CustomRoundButton(systemImageName: "questionmark")
+    let rulesButton = CustomRoundButton(systemImageName: "questionmark")
+    let settingsButton = CustomRoundButton(systemImageName: "gearshape")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,6 @@ class MainViewController: UIViewController {
         setup()
         subviews()
         setupConstraints()
-
     }
   
     private func subviews() {
@@ -76,6 +75,7 @@ class MainViewController: UIViewController {
             
             startButton.bottomAnchor.constraint(equalTo: categoryButton.topAnchor, constant: -20),
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
             categoryButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
             categoryButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
@@ -90,14 +90,10 @@ class MainViewController: UIViewController {
             bombImage.bottomAnchor.constraint(equalTo: startButton.topAnchor, constant: -20),
             bombImage.widthAnchor.constraint(equalToConstant: 330),
             bombImage.heightAnchor.constraint(equalToConstant: 350),
-            
-//            rulesButton.widthAnchor.constraint(equalToConstant: 75),
-//            rulesButton.heightAnchor.constraint(equalToConstant: 75),
+
             rulesButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             rulesButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20),
-            
-//            settingsButton.widthAnchor.constraint(equalToConstant: 75),
-//            settingsButton.heightAnchor.constraint(equalToConstant: 75),
+
             settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             settingsButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
             
@@ -110,33 +106,26 @@ class MainViewController: UIViewController {
   }
 
 
-    @objc func categoryButtonPressed() {
-      let gameVC = CategoryViewContoller()
-      self.navigationController?.pushViewController(gameVC, animated: true)
-    }
+  @objc func categoryButtonPressed() {
+    let gameVC = CategoryViewContoller()
+    self.navigationController?.pushViewController(gameVC, animated: true)
+  }
 
-        @objc func rulesButtonPressed() {
-            let gameVC = RulesViewController()
-            self.navigationController?.pushViewController(gameVC, animated: true)
-          
-        }
+  @objc func rulesButtonPressed() {
+    let gameVC = RulesViewController()
+    self.navigationController?.pushViewController(gameVC, animated: true)
 
-        @objc func settingsButtonPressed() {
-            let gameVC = GameEndViewController()
-            self.navigationController?.pushViewController(gameVC, animated: true)
-//            let settingsVC = SettingsViewController()
-//
-//            present(settingsVC, animated: true)
-        }
+  }
 
-    func setup() {
-        startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
-                categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
-                rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
-                settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
-     
-//        rulesButton.layer.cornerRadius = 38
-//        settingsButton.layer.cornerRadius = 38
+  @objc func settingsButtonPressed() {
+    let gameVC = GameEndViewController()
+    self.navigationController?.pushViewController(gameVC, animated: true)
+  }
 
-    }
+  func setup() {
+    startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
+    categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
+    rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
+    settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+  }
 }

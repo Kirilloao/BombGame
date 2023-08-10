@@ -24,7 +24,7 @@ struct Category {
 
 let categories = [
     "Природа" : "flower",
-    "Исскуство и кино": "cinema",
+    "Искусcтво и кино": "cinema",
     "Разное" : "planet",
-    "Cпорит и хобби": "sports"
+    "Cпорт и хобби": "sports"
 ]
