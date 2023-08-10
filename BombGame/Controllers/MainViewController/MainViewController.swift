@@ -116,12 +116,14 @@ class MainViewController: UIViewController {
     }
 
         @objc func rulesButtonPressed() {
-//            let rulesVC = RulesViewController()
-//
-//            present(rulesVC, animated: true)
+            let gameVC = RulesViewController()
+            self.navigationController?.pushViewController(gameVC, animated: true)
+          
         }
 
         @objc func settingsButtonPressed() {
+            let gameVC = GameEndViewController()
+            self.navigationController?.pushViewController(gameVC, animated: true)
 //            let settingsVC = SettingsViewController()
 //
 //            present(settingsVC, animated: true)
@@ -130,8 +132,8 @@ class MainViewController: UIViewController {
     func setup() {
         startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
                 categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
-        //        rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
-        //        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+                rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
+                settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
      
 //        rulesButton.layer.cornerRadius = 38
 //        settingsButton.layer.cornerRadius = 38
