@@ -10,8 +10,7 @@ import UIKit
 class CategoryCollectionView: UICollectionView {
 
     let images = [#imageLiteral(resourceName: "new2"), #imageLiteral(resourceName: "image 3"), #imageLiteral(resourceName: "image 10"), #imageLiteral(resourceName: "image 4"), #imageLiteral(resourceName: "image 5"), #imageLiteral(resourceName: "image 6")]
-    var names = ["О Разном", "Спорт и Хобби", "Про Жизнь", "Знаменитости", "Искусcтво и Кино", "Природа"]
-
+    var names = DataManager.shared.categories.map { $0.name}
     
     private let collectionLayout = UICollectionViewFlowLayout()
     
