@@ -11,6 +11,14 @@
 		17884B9E2A82B92800975BA6 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17884B9D2A82B92800975BA6 /* CategoryCollectionViewCell.swift */; };
 		17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */; };
 		3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F0F62A8266EE005B64FA /* Punishment.swift */; };
+		3CA0F1512A851CBA005B64FA /* GameRulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F14E2A851CBA005B64FA /* GameRulesViewController.swift */; };
+		3CA0F1522A851CBA005B64FA /* RulesCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F14F2A851CBA005B64FA /* RulesCategoryViewController.swift */; };
+		3CA0F1532A851CBA005B64FA /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F1502A851CBA005B64FA /* RulesViewController.swift */; };
+		3CA0F1582A851CD6005B64FA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F1552A851CD6005B64FA /* CustomCell.swift */; };
+		3CA0F15A2A851CD6005B64FA /* CustomButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F1572A851CD6005B64FA /* CustomButtonCell.swift */; };
+		3CA0F15C2A851CF7005B64FA /* Rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F15B2A851CF7005B64FA /* Rule.swift */; };
+		3CA0F15E2A851D14005B64FA /* CategoryTestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F15D2A851D14005B64FA /* CategoryTestModel.swift */; };
+		3CA0F1602A851E05005B64FA /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F15F2A851E05005B64FA /* CategoryCell.swift */; };
 		57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4B2A805CF900410D1C /* AppDelegate.swift */; };
 		57632A4E2A805CF900410D1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4D2A805CF900410D1C /* SceneDelegate.swift */; };
 		57632A502A805CF900410D1C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4F2A805CF900410D1C /* MainViewController.swift */; };
@@ -21,7 +29,6 @@
 		57632A6E2A8061C600410D1C /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A6D2A8061C600410D1C /* CategoryViewController.swift */; };
 		57632A702A8061D800410D1C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A6F2A8061D800410D1C /* GameViewController.swift */; };
 		57632A722A8061E900410D1C /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A712A8061E900410D1C /* GameEndViewController.swift */; };
-		57632A742A8061F400410D1C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A732A8061F400410D1C /* RulesViewController.swift */; };
 		57632A782A80624800410D1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A772A80624800410D1C /* SettingsViewController.swift */; };
 		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
 		57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A872A82AB1600410D1C /* NavigationBar.swift */; };
@@ -42,10 +49,18 @@
 /* Begin PBXFileReference section */
 		17884B9B2A82B8FD00975BA6 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		17884B9D2A82B92800975BA6 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		17A0FB282A83C14B006A93B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		17A0FB282A83C14B006A93B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationBar.swift; path = BombGame/Extensions/NavigationBar.swift; sourceTree = "<group>"; };
 		17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModeler.swift; sourceTree = "<group>"; };
 		3CA0F0F62A8266EE005B64FA /* Punishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Punishment.swift; sourceTree = "<group>"; };
-		57632A482A805CF900410D1C /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CA0F14E2A851CBA005B64FA /* GameRulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameRulesViewController.swift; path = ../../../../../1Challenge/BombGame/BombGame1/Controllers/RulesViewController/GameRulesViewController.swift; sourceTree = "<group>"; };
+		3CA0F14F2A851CBA005B64FA /* RulesCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RulesCategoryViewController.swift; path = ../../../../../1Challenge/BombGame/BombGame1/Controllers/RulesViewController/RulesCategoryViewController.swift; sourceTree = "<group>"; };
+		3CA0F1502A851CBA005B64FA /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RulesViewController.swift; path = ../../../../../1Challenge/BombGame/BombGame1/Controllers/RulesViewController/RulesViewController.swift; sourceTree = "<group>"; };
+		3CA0F1552A851CD6005B64FA /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		3CA0F1572A851CD6005B64FA /* CustomButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButtonCell.swift; sourceTree = "<group>"; };
+		3CA0F15B2A851CF7005B64FA /* Rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rule.swift; path = ../../../../1Challenge/BombGame/BombGame1/Models/Rule.swift; sourceTree = "<group>"; };
+		3CA0F15D2A851D14005B64FA /* CategoryTestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryTestModel.swift; path = ../../../../1Challenge/BombGame/BombGame1/Models/CategoryTestModel.swift; sourceTree = "<group>"; };
+		3CA0F15F2A851E05005B64FA /* CategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryCell.swift; path = ../../../../../../../CategoryCell.swift; sourceTree = "<group>"; };
+		57632A482A805CF900410D1C /* BombGame.xcodeproj */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BombGame.xcodeproj; path = ../../../../../../../../Desktop/SwiftMarathon/Challenge1/BombGame/BombGame.xcodeproj; sourceTree = BUILT_PRODUCTS_DIR; };
 		57632A4B2A805CF900410D1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57632A4D2A805CF900410D1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		57632A4F2A805CF900410D1C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +72,6 @@
 		57632A6D2A8061C600410D1C /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		57632A6F2A8061D800410D1C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		57632A712A8061E900410D1C /* GameEndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
-		57632A732A8061F400410D1C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		57632A772A80624800410D1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		57632A872A82AB1600410D1C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
@@ -86,6 +100,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CA0F1542A851CD6005B64FA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3CA0F1552A851CD6005B64FA /* CustomCell.swift */,
+				3CA0F1572A851CD6005B64FA /* CustomButtonCell.swift */,
+				3CA0F15F2A851E05005B64FA /* CategoryCell.swift */,
+			);
+			name = Views;
+			path = ../../../../../1Challenge/BombGame/BombGame1/Controllers/RulesViewController/Views;
+			sourceTree = "<group>";
+		};
 		57632A3F2A805CF900410D1C = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +123,7 @@
 		57632A492A805CF900410D1C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57632A482A805CF900410D1C /* BombGame.app */,
+				57632A482A805CF900410D1C /* BombGame.xcodeproj */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +178,8 @@
 			children = (
 				3CA0F0F62A8266EE005B64FA /* Punishment.swift */,
 				17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */,
+				3CA0F15D2A851D14005B64FA /* CategoryTestModel.swift */,
+				3CA0F15B2A851CF7005B64FA /* Rule.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,7 +234,10 @@
 		57632A6C2A80616200410D1C /* RulesViewController */ = {
 			isa = PBXGroup;
 			children = (
-				57632A732A8061F400410D1C /* RulesViewController.swift */,
+				3CA0F1542A851CD6005B64FA /* Views */,
+				3CA0F14E2A851CBA005B64FA /* GameRulesViewController.swift */,
+				3CA0F14F2A851CBA005B64FA /* RulesCategoryViewController.swift */,
+				3CA0F1502A851CBA005B64FA /* RulesViewController.swift */,
 			);
 			path = RulesViewController;
 			sourceTree = "<group>";
@@ -270,7 +300,7 @@
 			);
 			name = BombGame;
 			productName = BombGame;
-			productReference = 57632A482A805CF900410D1C /* BombGame.app */;
+			productReference = 57632A482A805CF900410D1C /* BombGame.xcodeproj */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -336,17 +366,24 @@
 			files = (
 				57632A702A8061D800410D1C /* GameViewController.swift in Sources */,
 				17884B9E2A82B92800975BA6 /* CategoryCollectionViewCell.swift in Sources */,
+				3CA0F1582A851CD6005B64FA /* CustomCell.swift in Sources */,
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
 				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
+				3CA0F15C2A851CF7005B64FA /* Rule.swift in Sources */,
+				3CA0F1522A851CBA005B64FA /* RulesCategoryViewController.swift in Sources */,
+				3CA0F15A2A851CD6005B64FA /* CustomButtonCell.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
 				57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
+				3CA0F1602A851E05005B64FA /* CategoryCell.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */,
-				57632A742A8061F400410D1C /* RulesViewController.swift in Sources */,
+				3CA0F1512A851CBA005B64FA /* GameRulesViewController.swift in Sources */,
 				17884B9C2A82B8FD00975BA6 /* CategoryCollectionView.swift in Sources */,
 				57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */,
 				57632A7D2A81742300410D1C /* CustomButton.swift in Sources */,
+				3CA0F15E2A851D14005B64FA /* CategoryTestModel.swift in Sources */,
+				3CA0F1532A851CBA005B64FA /* RulesViewController.swift in Sources */,
 				C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */,
 				57632A6E2A8061C600410D1C /* CategoryViewController.swift in Sources */,
 				57632A722A8061E900410D1C /* GameEndViewController.swift in Sources */,
