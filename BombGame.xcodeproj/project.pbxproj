@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		17884B9C2A82B8FD00975BA6 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17884B9B2A82B8FD00975BA6 /* CategoryCollectionView.swift */; };
 		17884B9E2A82B92800975BA6 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17884B9D2A82B92800975BA6 /* CategoryCollectionViewCell.swift */; };
-		178D9ACD2A84F07C007F0651 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178D9ACC2A84F07C007F0651 /* NavigationBar.swift */; };
 		17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */; };
 		3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA0F0F62A8266EE005B64FA /* Punishment.swift */; };
 		57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A4B2A805CF900410D1C /* AppDelegate.swift */; };
@@ -25,6 +24,7 @@
 		57632A742A8061F400410D1C /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A732A8061F400410D1C /* RulesViewController.swift */; };
 		57632A782A80624800410D1C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A772A80624800410D1C /* SettingsViewController.swift */; };
 		57632A7D2A81742300410D1C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A7C2A81742300410D1C /* CustomButton.swift */; };
+		57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57632A872A82AB1600410D1C /* NavigationBar.swift */; };
 		578BE8B62A83C01000C0C0DF /* bombLong.gif in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8B42A83C01000C0C0DF /* bombLong.gif */; };
 		578BE8B72A83C01000C0C0DF /* bombShort.gif in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8B52A83C01000C0C0DF /* bombShort.gif */; };
 		578BE8C22A83FE3500C0C0DF /* vzriyiv1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8B92A83FE3400C0C0DF /* vzriyiv1.mp3 */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		17884B9B2A82B8FD00975BA6 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
 		17884B9D2A82B92800975BA6 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		178D9ACC2A84F07C007F0651 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		17A0FB282A83C14B006A93B6 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModeler.swift; sourceTree = "<group>"; };
 		3CA0F0F62A8266EE005B64FA /* Punishment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Punishment.swift; sourceTree = "<group>"; };
 		57632A482A805CF900410D1C /* BombGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BombGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +60,7 @@
 		57632A732A8061F400410D1C /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
 		57632A772A80624800410D1C /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57632A7C2A81742300410D1C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		57632A872A82AB1600410D1C /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		578BE8B42A83C01000C0C0DF /* bombLong.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombLong.gif; sourceTree = "<group>"; };
 		578BE8B52A83C01000C0C0DF /* bombShort.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bombShort.gif; sourceTree = "<group>"; };
 		578BE8B92A83FE3400C0C0DF /* vzriyiv1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = vzriyiv1.mp3; sourceTree = "<group>"; };
@@ -85,19 +86,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		178D9ACA2A84EE38007F0651 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		57632A3F2A805CF900410D1C = {
 			isa = PBXGroup;
 			children = (
 				57632A4A2A805CF900410D1C /* BombGame */,
 				57632A492A805CF900410D1C /* Products */,
-				178D9ACA2A84EE38007F0651 /* Recovered References */,
+				578BE8D12A84F28D00C0C0DF /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				57632A5F2A805DA700410D1C /* Colors.swift */,
+				57632A872A82AB1600410D1C /* NavigationBar.swift */,
 				57632A612A805DC900410D1C /* GradientView.swift */,
 				57632A7C2A81742300410D1C /* CustomButton.swift */,
-				178D9ACC2A84F07C007F0651 /* NavigationBar.swift */,
 				C30A18822A82C71C00E8350E /* CustomRoundButton.swift */,
 			);
 			path = Extensions;
@@ -251,6 +245,14 @@
 			path = Gifs;
 			sourceTree = "<group>";
 		};
+		578BE8D12A84F28D00C0C0DF /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				17A0FB282A83C14B006A93B6 /* NavigationBar.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +339,7 @@
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
 				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
+				57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */,
@@ -347,7 +350,6 @@
 				C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */,
 				57632A6E2A8061C600410D1C /* CategoryViewController.swift in Sources */,
 				57632A722A8061E900410D1C /* GameEndViewController.swift in Sources */,
-				178D9ACD2A84F07C007F0651 /* NavigationBar.swift in Sources */,
 				57632A4E2A805CF900410D1C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
