@@ -126,10 +126,12 @@ class GameViewController: UIViewController {
     }
     
     private var isPlayingShortGIF = true
+    // пока немного разобрался с работой со звуком, но по гифам пока еще смотрю. По кнопке паузы пока тоже не совсем могу предстваить в голове, как реализовать
     
     private func startGIFLoop() {
         bombShortImageView.startAnimating()
         timer = Timer.scheduledTimer(timeInterval: 29.1, target: self, selector: #selector(switchToLongGIF), userInfo: nil, repeats: false)
+        // Идет не состыковка гифа и звука немного
     }
     
     @objc private func switchToLongGIF() {
@@ -139,6 +141,7 @@ class GameViewController: UIViewController {
         
         //      timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.9, target: self, selector: #selector(stopGIFLoop), userInfo: nil, repeats: false)
+        // Идет не состыковка гифа и звука немного
     }
     
     @objc private func stopGIFLoop() {
@@ -148,10 +151,9 @@ class GameViewController: UIViewController {
     }
     
     //MARK: Play sound
-    
+    // Мы делаем отдельно отдельно функцию для звука взрыва или можем присоединить к концу звука таймера звук взрыва?
     func playBGSound() {
         if let soundPath = Bundle.main.url(forResource: "fon1", withExtension: "mp3") {
-            //let soundURL = URL(fileURLWithPath: "\(soundPath)")
             do {
                 player = try AVAudioPlayer(contentsOf: soundPath)
                 player?.numberOfLoops = -1
