@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-    
+
     
     private lazy var gradientView: GradientView = {
         let gradientView = GradientView(frame: view.bounds)
@@ -124,13 +124,9 @@ class SettingsViewController: UIViewController {
         subviews()
         setupConstraints()
         setup()
-        
     }
     
-   
-    
-    
-    
+
     private func subviews() {
         view.addSubview(gradientView)
         view.addSubview(timeLabel)
@@ -210,12 +206,7 @@ class SettingsViewController: UIViewController {
             
             explosionPicker.topAnchor.constraint(equalTo: tickLabel.bottomAnchor, constant: 55),
             explosionPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            
-            
-            
-            
-            
-            
+
         ])
     }
     
@@ -252,8 +243,6 @@ class SettingsViewController: UIViewController {
         } else {
             print("Disabled")
         }
-    
-        
     }
     
     @objc func musicSwitchChanged(_ sender: UISwitch) {
@@ -262,8 +251,6 @@ class SettingsViewController: UIViewController {
         } else {
             print("Disabled")
         }
-    
-        
     }
 }
 
@@ -277,7 +264,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return K.fon[row]
+        return "K.fon[row]"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

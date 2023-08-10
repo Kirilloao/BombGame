@@ -50,7 +50,7 @@ class RulesCategoryViewController: UIViewController {
     private var stackView = UIStackView()
     
     // MARK: - Private Properties
-    let categories = Category.getGategories()
+    let categories = CategoryRules.getGategories()
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {

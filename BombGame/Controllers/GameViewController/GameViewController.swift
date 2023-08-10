@@ -49,8 +49,6 @@ class GameViewController: UIViewController {
         subviews()
         setupConstraints()
         setupGIFs()
-        addRightNavButton()
-        navigationItem.title = "Игра"
     }
     
     
@@ -68,6 +66,8 @@ class GameViewController: UIViewController {
             
             playButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             playButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -64),
+            playButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 2 / 3),
+            playButton.heightAnchor.constraint(equalToConstant: 80),
             
         ])
     }
@@ -96,12 +96,7 @@ class GameViewController: UIViewController {
     func setup() {
         playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     }
-    
-    //MARK: Play GIF
-    func addRightNavButton() {
-        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(playButtonPressed))
-        navigationItem.rightBarButtonItem = rightBarButton
-    }
+  
     //MARK: Play video
     
     private func setupGIFs() {

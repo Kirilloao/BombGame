@@ -97,7 +97,11 @@ class GameEndViewController: UIViewController {
       gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       taskLabel.heightAnchor.constraint(equalToConstant: 80),
-      descriptionTaskLabel.heightAnchor.constraint(equalToConstant: 100)
+      descriptionTaskLabel.heightAnchor.constraint(equalToConstant: 100),
+      anotherTaskButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 2 / 3),
+      anotherTaskButton.heightAnchor.constraint(equalToConstant: 80),
+      startOverButton.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 2 / 3),
+      startOverButton.heightAnchor.constraint(equalToConstant: 80)
     ])
   }
 
