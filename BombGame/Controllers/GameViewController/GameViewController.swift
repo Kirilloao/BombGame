@@ -9,13 +9,17 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, AVAudioPlayerDelegate {
     
-    var player: AVAudioPlayer?
+    var playerBG: AVAudioPlayer?
+    var playerTimer: AVAudioPlayer?
+    var bombSoundPlayer: AVAudioPlayer?
+    var timer: Timer?
+    var mainTimer: Timer?
     var playerViewController: AVPlayerViewController!
     var bombShortImageView: UIImageView!
     var bombLongImageView: UIImageView!
-    var timer: Timer?
+    
     
     let questions = ["Назавите города на Б", "Как называется самое глубокое озеро?", "Самая маленькая страна в мире?"]
     
@@ -43,6 +47,8 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        playerTimer?.delegate = self
+        bombSoundPlayer?.delegate = self
         navigationItem.title = "Игра"
         addRightNavButton()
         setup()
@@ -77,13 +83,16 @@ class GameViewController: UIViewController {
     @objc func playButtonPressed() {
         print("Play button pressed")
         playBGSound()
-        startGIFLoop()
         playTimerSound()
+        startGIFLoop()
+        playButton.isHidden = true
         textLabel.text = questions[Int.random(in: 0...2)]
+        //        startMainTimer()
         
     }
     
     @objc func pauseButtonPressed() {
+        print("text")
     }
     
     func addRightNavButton() {
@@ -130,7 +139,7 @@ class GameViewController: UIViewController {
     
     private func startGIFLoop() {
         bombShortImageView.startAnimating()
-        timer = Timer.scheduledTimer(timeInterval: 29.1, target: self, selector: #selector(switchToLongGIF), userInfo: nil, repeats: false)
+        timer = Timer.scheduledTimer(timeInterval: 29, target: self, selector: #selector(switchToLongGIF), userInfo: nil, repeats: false)
         // Идет не состыковка гифа и звука немного
     }
     
@@ -150,39 +159,55 @@ class GameViewController: UIViewController {
         playButton.isEnabled = true
     }
     
+    //MARK: Common timer
+    
+    //    private func startMainTimer() {
+    //        mainTimer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(mainTimerFired), userInfo: nil, repeats: true)
+    //    }
+    //
+    //    @objc private func mainTimerFired() {
+    //        playBGSound()
+    //        startGIFLoop()
+    //        playTimerSound()
+    //        textLabel.text = questions.randomElement()
+    //        playButton.isHidden = true
+    //    }
+    
+    
+    
     //MARK: Play sound
-    // Мы делаем отдельно отдельно функцию для звука взрыва или можем присоединить к концу звука таймера звук взрыва?
+    
     func playBGSound() {
         if let soundPath = Bundle.main.url(forResource: "fon1", withExtension: "mp3") {
             do {
-                player = try AVAudioPlayer(contentsOf: soundPath)
-                player?.numberOfLoops = -1
-                player?.volume = 0.5
-                player?.prepareToPlay()
+                playerBG = try AVAudioPlayer(contentsOf: soundPath)
+                playerBG?.numberOfLoops = -1
+                playerBG?.volume = 0.5
+                playerBG?.prepareToPlay()
             } catch {
                 print("Ошибка создания цикла \(error)")
             }
-            
         }
-        
-        player!.play()
+        playerBG!.play()
         DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
-            self.player!.stop()
+            self.playerBG!.stop()
         }
-        
     }
+    
     
     func playTimerSound() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 20) { [weak self] in
             if let soundPath = Bundle.main.url(forResource: "timer1", withExtension: "mp3") {
                 do {
-                    self?.player = try AVAudioPlayer(contentsOf: soundPath)
-                    self?.player?.numberOfLoops = -1
-                    self?.player?.prepareToPlay()
-                    self?.player?.play()
+                    self?.playerTimer = try AVAudioPlayer(contentsOf: soundPath)
+                    self?.playerTimer?.numberOfLoops = -1
+                    self?.playerTimer?.prepareToPlay()
+//                    self?.playerTimer?.delegate = self
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
-                        self?.player?.stop()
+                    self?.playerTimer?.play()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                        self?.playerTimer?.stop()
+                        self!.playBombSound() //
                     }
                 } catch {
                     print("Ошибка создания цикла \(error)")
@@ -192,8 +217,22 @@ class GameViewController: UIViewController {
     }
     
     
+    
+    func playBombSound() {
+        if let additionalSoundPath = Bundle.main.url(forResource: "vzriyiv1", withExtension: "mp3") {
+            do {
+                bombSoundPlayer = try AVAudioPlayer(contentsOf: additionalSoundPath)
+                bombSoundPlayer?.prepareToPlay()
+                bombSoundPlayer?.play()
+            } catch {
+                print("Ошибка создания дополнительного звука \(error)")
+            }
+        }
+    }
+    
 }
 
+//MARK: Extension for UIImageView
 extension UIImageView {
     
     static func gifImageWithName(frame: CGRect, resourceName: String) -> UIImageView? {
