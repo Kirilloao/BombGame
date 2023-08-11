@@ -86,11 +86,11 @@ class SettingsCell: UITableViewCell {
                 equalTo: contentView.trailingAnchor,
                 constant: -20
             ),
-            mainLabel.heightAnchor.constraint(equalToConstant: 40)
-//            mainLabel.bottomAnchor.constraint(
-//                equalTo: contentView.bottomAnchor,
-//                constant: -5
-//            )
+//            mainLabel.heightAnchor.constraint(equalToConstant: 40)
+            mainLabel.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -5
+            )
         ])
     }
     
