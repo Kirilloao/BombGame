@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class K {
+    static let array = ["la", "se", "fa"]
+}

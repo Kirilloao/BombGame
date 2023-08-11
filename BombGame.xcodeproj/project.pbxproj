@@ -45,6 +45,7 @@
 		578BE8CA2A83FE3500C0C0DF /* fon3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C12A83FE3500C0C0DF /* fon3.mp3 */; };
 		578BE8D42A85669600C0C0DF /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D32A85669600C0C0DF /* Constans.swift */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
+		C30A188A2A866DE700E8350E /* MusicPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18892A866DE700E8350E /* MusicPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		578BE8D32A85669600C0C0DF /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 		C30A18842A8558D000E8350E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C30A18892A866DE700E8350E /* MusicPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 		57632A752A80620000410D1C /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				C30A18882A866DC600E8350E /* Pickers */,
 				57632A772A80624800410D1C /* SettingsViewController.swift */,
 			);
 			path = SettingsViewController;
@@ -285,6 +288,14 @@
 				C30A18842A8558D000E8350E /* Constants.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		C30A18882A866DC600E8350E /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				C30A18892A866DE700E8350E /* MusicPickerView.swift */,
+			);
+			path = Pickers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +392,7 @@
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */,
+				C30A188A2A866DE700E8350E /* MusicPickerView.swift in Sources */,
 				3CA0F1512A851CBA005B64FA /* GameRulesViewController.swift in Sources */,
 				17884B9C2A82B8FD00975BA6 /* CategoryCollectionView.swift in Sources */,
 				57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */,
