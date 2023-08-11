@@ -149,16 +149,18 @@ class SettingsViewController: UIViewController {
     let randomButton = CustomButton(customTitle: "Случайное")
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        navigationItem.title = "Настройки"
-        subviews()
-        setupConstraints()
-        setup()
-        musicPickerView.musicPickerDelegate = self
-    }
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    navigationItem.title = "Настройки"
+    subviews()
+    setupConstraints()
+    setup()
+    musicPickerView.musicPickerDelegate = self
+    tickPickerView.tickPickerDelegate = self
+    explosionPickerView.explosionPickerDelegate = self
+  }
+  
     private func subviews() {
         view.addSubview(gradientView)
         view.addSubview(timeLabel)
@@ -253,9 +255,6 @@ class SettingsViewController: UIViewController {
             selectedExplosionLabel.topAnchor.constraint(equalTo: tickLabel.bottomAnchor, constant: 55),
             selectedExplosionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 22),
             selectedExplosionLabel.widthAnchor.constraint(equalToConstant: 120),
-            
-            
-            
         ])
     }
     
@@ -304,21 +303,23 @@ class SettingsViewController: UIViewController {
     
     @objc private func selectedMusicLabelTapped() {
         musicPickerView.isHidden.toggle()
+      audioPlayer?.stop()
     }
     
     @objc private func selectedTickLabelTapped() {
         tickPickerView.isHidden.toggle()
+      audioPlayer?.stop()
     }
     
     @objc private func selectedExplosionLabelTapped() {
         explosionPickerView.isHidden.toggle()
+      audioPlayer?.stop()
     }
 }
 
 extension SettingsViewController: MusicPickerDelegate {
     func didSelectMusicValue(_ value: String) {
         selectedMusicLabel.text = value
-        musicPickerView.isHidden = true
         audioPlayer?.stop()
 
         var audioFileName = ""
@@ -348,13 +349,57 @@ extension SettingsViewController: MusicPickerDelegate {
 extension SettingsViewController: TickPickerDelegate {
     func didSelectTickValue(_ value: String) {
         selectedTickLabel.text = value
-        tickPickerView.isHidden = true
-    }
+        audioPlayer?.stop()
+
+      var audioFileName = ""
+
+      if value == "Таймер 1" {
+          audioFileName = "timer1"
+      } else if value == "Таймер 2" {
+          audioFileName = "timer2"
+      } else if value == "Таймер 3" {
+          audioFileName = "timer3"
+      }
+
+      UserDefaultsManager.shared.timerMusic = audioFileName
+
+      if let audioURL = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
+          do {
+              audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+              audioPlayer?.prepareToPlay()
+              audioPlayer?.play()
+          } catch {
+              print("Error creating audio player: \(error)")
+          }
+      }
+  }
 }
 
 extension SettingsViewController: ExplosionPickerDelegate {
     func didSelectExplosionValue(_ value: String) {
         selectedExplosionLabel.text = value
-        explosionPickerView.isHidden = true
+        audioPlayer?.stop()
+
+      var audioFileName = ""
+
+      if value == "Взрыв 1" {
+          audioFileName = "explosion1"
+      } else if value == "Взрыв 2" {
+          audioFileName = "explosion2"
+      } else if value == "Взрыв 3" {
+          audioFileName = "explosion3"
+      }
+
+      UserDefaultsManager.shared.explosionMusic = audioFileName
+
+      if let audioURL = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
+          do {
+              audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+              audioPlayer?.prepareToPlay()
+              audioPlayer?.play()
+          } catch {
+              print("Error creating audio player: \(error)")
+          }
+      }
     }
 }

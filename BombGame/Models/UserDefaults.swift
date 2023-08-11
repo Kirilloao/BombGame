@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct UserDefaultsManager {
   let defaults = UserDefaults.standard
   static var shared = UserDefaultsManager()
@@ -17,7 +15,6 @@ struct UserDefaultsManager {
     private let defaultTimerMusic = "timer1"
     private let defaultExplosionMusic = "explosion1"
 
-    // Значение музыки по умолчанию для разных событий
     var fonMusic: String {
         get {
             return defaults.string(forKey: "fonMusic") ?? defaultFonMusic
@@ -47,5 +44,16 @@ struct UserDefaultsManager {
           defaults.synchronize()
         }
     }
+
+  var selectedCategories: [String] {
+          get {
+              return defaults.array(forKey: "selectedCategories") as? [String] ?? []
+          }
+          set {
+              defaults.set(newValue, forKey: "selectedCategories")
+              defaults.synchronize()
+          }
+      }
+  
 }
 

@@ -30,7 +30,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   var gamePausedTime: Date?
 
   let questions = DataManager.shared.categories
-    .filter { DataManager.shared.arrSelectedCategories.contains($0.name) }
+    .filter { UserDefaultsManager.shared.selectedCategories.contains($0.name) }
     .flatMap { $0.questions }
 
   let playButton = CustomButton(customTitle: "Запустить")
@@ -87,6 +87,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    gameState = .idle
     stopAllSoundsAndAnimations()
     endGame()
   }
@@ -157,7 +158,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
       bombShortImageView.layer.pauseAnimation()
       bombLongImageView.layer.pauseAnimation()
       gamePausedTime = Date()
-      bombSoundPlayer?.stop()
       gameState = .paused
       remainingTime -= Date().timeIntervalSince(gamePausedTime ?? Date())
       textLabel.isHidden = true
@@ -243,6 +243,9 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     self.playBombSound()
     DispatchQueue.global().asyncAfter(deadline: deadline) { [weak self] in
       DispatchQueue.main.async {
+        if self?.gameState == .playing {
+                         self?.playBombSound()
+                     }
         self?.stopGIFLoop()
         let gameVC = GameEndViewController()
         self?.navigationController?.pushViewController(gameVC, animated: true)
@@ -293,7 +296,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
 
   private func endGame() {
-    gameTimer?.cancel()
     gameTimer = nil
     playerTimer = nil
   }
