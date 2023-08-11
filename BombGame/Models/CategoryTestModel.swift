@@ -7,15 +7,15 @@
 
 import Foundation
 
-struct Category {
+struct CategoryRules {
     var image: String
     var name: String
     
-    static func getGategories() -> [Category] {
+    static func getGategories() -> [CategoryRules] {
         
-        var allCategories: [Category] = []
+        var allCategories: [CategoryRules] = []
         for (key, value) in categories {
-            allCategories.append(Category(image: value, name: key))
+            allCategories.append(CategoryRules(image: value, name: key))
         }
         
         return allCategories
@@ -24,7 +24,7 @@ struct Category {
 
 let categories = [
     "Природа" : "flower",
-    "Исскуство и кино": "cinema",
+    "Искусcтво и кино": "cinema",
     "Разное" : "planet",
-    "Cпорит и хобби": "sports"
+    "Cпорт и хобби": "sports"
 ]

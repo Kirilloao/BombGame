@@ -88,93 +88,80 @@ class GameRulesViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension  GameRulesViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        1
+  func numberOfSections(in tableView: UITableView) -> Int {
+    1
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    rules.count
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+    let number = rules[indexPath.row]
+
+    if indexPath.row == 1 {
+      guard
+        let cell = tableView.dequeueReusableCell(
+          withIdentifier: "cellWithButton",for: indexPath)
+          as? CustomButtonCell
+      else {
+        return UITableViewCell()
+      }
+
+      cell.setupViews(number)
+      cell.layoutIfNeeded()
+      cell.backgroundColor = .clear
+
+      return cell
+    } else {
+      guard
+        let cell = tableView.dequeueReusableCell(
+          withIdentifier: "cell", for: indexPath)
+          as? CustomCell
+      else {
+        return UITableViewCell()
+      }
+      cell.setupViews(number)
+      cell.layoutIfNeeded()
+      cell.backgroundColor = .clear
+
+      return cell
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rules.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let number = rules[indexPath.row]
-        
-        if indexPath.row == 1 {
-            guard
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "cellWithButton",for: indexPath)
-                    as? CustomButtonCell
-            else {
-                return UITableViewCell()
-            }
-            
-            cell.setupViews(number)
-            cell.layoutIfNeeded()
-            cell.backgroundColor = .clear
-            
-            return cell
-        } else {
-            guard
-                let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "cell", for: indexPath)
-                    as? CustomCell
-            else {
-                return UITableViewCell()
-            }
-            cell.setupViews(number)
-            cell.layoutIfNeeded()
-            cell.backgroundColor = .clear
-            
-            return cell
-        }
-    }
+  }
 }
 
 // MARK: - UITableViewDelegate
 extension GameRulesViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        60
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    60
+  }
+
+  func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    guard let headerView = view as? UITableViewHeaderFooterView else { return }
+
+    if let headerView = view as? UITableViewHeaderFooterView {
+      headerView.contentView.backgroundColor = .clear
     }
-    
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        guard let headerView = view as? UITableViewHeaderFooterView else { return }
-        
-        if let headerView = view as? UITableViewHeaderFooterView {
-            headerView.contentView.backgroundColor = .clear
-            
-        }
-        
-        let label = UILabel()
-        label.text = "Правила Игры"
-        label.textColor = #colorLiteral(red: 0.5838159919, green: 0.2887962759, blue: 0.7136611342, alpha: 1)
-        label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 35)
-        
-        headerView.addSubview(label)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            label.leadingAnchor.constraint(
-                equalTo: headerView.leadingAnchor,
-                constant: 16
-            ),
-            label.trailingAnchor.constraint(
-                equalTo: headerView.trailingAnchor,
-                constant: -16
-            ),
-            label.topAnchor.constraint(
-                equalTo: headerView.topAnchor,
-                constant: 0
-            ),
-            label.bottomAnchor.constraint(
-                equalTo: headerView.bottomAnchor,
-                constant: 0)
-        ])
-    }
-    
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
+
+    let label = UILabel()
+    label.text = "Правила Игры"
+    label.textColor = #colorLiteral(red: 0.5838159919, green: 0.2887962759, blue: 0.7136611342, alpha: 1)
+    label.textAlignment = .center
+    label.font = UIFont.boldSystemFont(ofSize: 35)
+
+    headerView.addSubview(label)
+
+    label.translatesAutoresizingMaskIntoConstraints = false
+
+    NSLayoutConstraint.activate([
+      label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+      label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+      label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+    ])
+  }
+
+  func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+    return false
+  }
 }
