@@ -126,12 +126,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     gameTimer = nil
   }
 
-  func addRightNavButton() {
+  private func addRightNavButton() {
     let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(pauseButtonPressed))
     navigationItem.rightBarButtonItem = rightBarButton
   }
 
-  func setup() {
+  private func setup() {
     playButton.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
   }
 
@@ -258,7 +258,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
   //MARK: Play sound
 
-  func playBGSound() {
+  private func playBGSound() {
     if let soundPath = Bundle.main.url(forResource: "fon1", withExtension: "mp3") {
       do {
         playerBG = try AVAudioPlayer(contentsOf: soundPath)
@@ -298,7 +298,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     playerTimer = nil
   }
 
-  func playTimerSound() {
+  private func playTimerSound() {
     DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
       if let soundPath = Bundle.main.url(forResource: "timer1", withExtension: "mp3"),
          let remainingTime = self?.remainingTime {
@@ -318,7 +318,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     }
   }
 
-  func playBombSound() {
+  private func playBombSound() {
     if let additionalSoundPath = Bundle.main.url(forResource: "explosion1", withExtension: "mp3") {
       do {
         bombSoundPlayer = try AVAudioPlayer(contentsOf: additionalSoundPath)
@@ -328,45 +328,5 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         print("Ошибка создания дополнительного звука \(error)")
       }
     }
-  }
-}
-
-extension UIImageView {
-  static func gifImageWithName(frame: CGRect, resourceName: String) -> UIImageView? {
-    guard let path = Bundle.main.path(forResource: resourceName, ofType: "gif") else {
-      print("Gif does not exist at that path")
-      return nil
-    }
-    let url = URL(fileURLWithPath: path)
-    guard let gifData = try? Data(contentsOf: url),
-          let source =  CGImageSourceCreateWithData(gifData as CFData, nil) else { return nil }
-    var images = [UIImage]()
-    let imageCount = CGImageSourceGetCount(source)
-    for i in 0 ..< imageCount {
-      if let image = CGImageSourceCreateImageAtIndex(source, i, nil) {
-        images.append(UIImage(cgImage: image))
-      }
-    }
-    let gifImageView = UIImageView(frame: frame)
-    gifImageView.animationImages = images
-    return gifImageView
-  }
-}
-
-//MARK: Extention for pause button
-extension CALayer {
-  func pauseAnimation() {
-    let pausedTime = convertTime(CACurrentMediaTime(), from: nil)
-    speed = 0.0
-    timeOffset = pausedTime
-  }
-
-  func resumeAnimation() {
-    let pausedTime = timeOffset
-    speed = 1.0
-    timeOffset = 0.0
-    beginTime = 0.0
-    let timeSincePause = convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-    beginTime = timeSincePause
   }
 }

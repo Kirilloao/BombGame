@@ -44,6 +44,8 @@
 		578BE8C92A83FE3500C0C0DF /* explosion3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C02A83FE3500C0C0DF /* explosion3.mp3 */; };
 		578BE8CA2A83FE3500C0C0DF /* fon3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C12A83FE3500C0C0DF /* fon3.mp3 */; };
 		578BE8D42A85669600C0C0DF /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D32A85669600C0C0DF /* Constans.swift */; };
+		578BE8D82A86ABDE00C0C0DF /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D72A86ABDE00C0C0DF /* CALayer.swift */; };
+		578BE8DA2A86AC0C00C0C0DF /* UiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D92A86AC0C00C0C0DF /* UiImageView.swift */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		578BE8C02A83FE3500C0C0DF /* explosion3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion3.mp3; sourceTree = "<group>"; };
 		578BE8C12A83FE3500C0C0DF /* fon3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fon3.mp3; sourceTree = "<group>"; };
 		578BE8D32A85669600C0C0DF /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		578BE8D72A86ABDE00C0C0DF /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
+		578BE8D92A86AC0C00C0C0DF /* UiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImageView.swift; sourceTree = "<group>"; };
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 		C30A18842A8558D000E8350E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,10 +160,12 @@
 			isa = PBXGroup;
 			children = (
 				57632A5F2A805DA700410D1C /* Colors.swift */,
+				578BE8D72A86ABDE00C0C0DF /* CALayer.swift */,
 				57632A872A82AB1600410D1C /* NavigationBar.swift */,
 				57632A612A805DC900410D1C /* GradientView.swift */,
 				57632A7C2A81742300410D1C /* CustomButton.swift */,
 				C30A18822A82C71C00E8350E /* CustomRoundButton.swift */,
+				578BE8D92A86AC0C00C0C0DF /* UiImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -376,7 +382,9 @@
 				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
 				3CA0F15C2A851CF7005B64FA /* Rule.swift in Sources */,
 				3CA0F1522A851CBA005B64FA /* RulesCategoryViewController.swift in Sources */,
+				578BE8DA2A86AC0C00C0C0DF /* UiImageView.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
+				578BE8D82A86ABDE00C0C0DF /* CALayer.swift in Sources */,
 				57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
