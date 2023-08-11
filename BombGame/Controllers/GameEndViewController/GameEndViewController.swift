@@ -79,7 +79,7 @@ class GameEndViewController: UIViewController {
   }
 
   @objc private func resetGame() {
-    let mainVC = MainViewController()
+    let mainVC = GameViewController()
     self.navigationController?.pushViewController(mainVC, animated: true)
   }
 
