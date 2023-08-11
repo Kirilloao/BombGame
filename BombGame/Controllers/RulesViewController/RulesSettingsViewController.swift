@@ -19,6 +19,13 @@ class RulesSettingsViewController: UIViewController {
     
     private let mainTableView = UITableView()
     
+    private var settingsText = [
+        "Если выбран режим “С Заданиями”, то после взрыва бомбы на экране будет появляться задание для проигравшего игрока.",
+        "Включить / Отключить фоновую музыку.",
+        "Выбрать звуки для фоновой музыки, тиканья бомбы и взрыва."
+    
+    ]
+    
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,14 +93,22 @@ extension RulesSettingsViewController: UITableViewDataSource {
         2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        8
+        if section == 0 {
+            return 3
+        } else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let text = settingsText[indexPath.row]
+        
         if indexPath.section == 0 && indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsCell else { return UITableViewCell() }
             
             cell.backgroundColor = .clear
+//            cell.setupMainLabel(text)
             return cell
             
         } else if indexPath.section == 0 && indexPath.row == 1 {
@@ -104,7 +119,11 @@ extension RulesSettingsViewController: UITableViewDataSource {
             return cell
             
         } else {
-            return UITableViewCell()
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsCell else { return UITableViewCell() }
+            
+            cell.backgroundColor = .clear
+            cell.setupMainLabel(text)
+            return cell
         }
         
         

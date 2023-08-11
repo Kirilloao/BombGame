@@ -154,4 +154,6 @@ class CategoryViewCell: UICollectionViewCell {
         categoryImageView.image = UIImage(named: category.image)
         categoryLabel.text = category.name
     }
+    
+  
 }

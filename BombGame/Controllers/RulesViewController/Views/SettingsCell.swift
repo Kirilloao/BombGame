@@ -94,4 +94,8 @@ class SettingsCell: UITableViewCell {
         ])
     }
     
+    func setupMainLabel(_ text: String) {
+        mainLabel.text = text
+    }
+    
 }

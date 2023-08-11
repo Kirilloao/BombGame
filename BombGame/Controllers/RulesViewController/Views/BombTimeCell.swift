@@ -8,29 +8,29 @@
 import UIKit
 
 class BombTimeCell: UITableViewCell {
-
+    
     // MARK: - Buttons
     lazy var shortButton: CustomButton = {
         var shortButton = createButton(with: "Короткое")
-          
+        
         return shortButton as! CustomButton
     }()
     
     lazy var middleButton: CustomButton = {
         var shortButton = createButton(with: "Среднее")
-          
+        
         return shortButton as! CustomButton
     }()
     
     lazy var longButton: CustomButton = {
         var shortButton = createButton(with: "Длинное")
-          
+        
         return shortButton as! CustomButton
     }()
     
     lazy var randomButton: CustomButton = {
         var shortButton = createButton(with: "Cлучайное")
-          
+        
         return shortButton as! CustomButton
     }()
     
@@ -40,40 +40,39 @@ class BombTimeCell: UITableViewCell {
     // MARK: - Labels
     lazy var shortLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 10 секунд.")
-
+        
         
         return shortLabel
     }()
     
     lazy var middleLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 20 секунд.")
-
+        
         
         return shortLabel
     }()
     
     lazy var longLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 45 секунд.")
-
+        
         
         return shortLabel
     }()
     
     lazy var randomLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 10-45 секунд.")
-
+        
         
         return shortLabel
     }()
-
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-   
-     addSubviews()
+        
+        addSubviews()
         
         setupConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -101,7 +100,7 @@ class BombTimeCell: UITableViewCell {
             shortButton.widthAnchor.constraint(equalToConstant: 120)
         ])
         
-//         setup constraints to shortLabel
+        //         setup constraints to shortLabel
         NSLayoutConstraint.activate([
             shortLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             shortLabel.leadingAnchor.constraint(equalTo: shortButton.trailingAnchor, constant: 5),
@@ -111,26 +110,16 @@ class BombTimeCell: UITableViewCell {
         
         // setup constraints to middleButton
         setupConstraintsToButton(middleButton, topAnchor: shortButton)
-
+        
         // setup constraints to middleLabel
-        NSLayoutConstraint.activate([
-            middleLabel.topAnchor.constraint(equalTo: shortLabel.bottomAnchor, constant: 20),
-            middleLabel.leadingAnchor.constraint(equalTo: middleButton.trailingAnchor, constant: 5),
-            middleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            middleLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
+        setupContraintsToLabel(middleLabel, topAnchor: shortLabel, leadingAnchor: middleButton)
         
         // setup constraints to longButton
         setupConstraintsToButton(longButton, topAnchor: middleButton)
         
         // setup constraints to longLabel
-        NSLayoutConstraint.activate([
-            longLabel.topAnchor.constraint(equalTo: middleLabel.bottomAnchor, constant: 20),
-            longLabel.leadingAnchor.constraint(equalTo: longButton.trailingAnchor, constant: 5),
-            longLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            longLabel.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
+        setupContraintsToLabel(longLabel, topAnchor: middleLabel, leadingAnchor: longButton)
+
         // setup constraints to randomButton
         setupConstraintsToButton(randomButton, topAnchor: longButton)
         
@@ -152,19 +141,29 @@ class BombTimeCell: UITableViewCell {
         ])
     }
     
+    private func setupContraintsToLabel(_ label: UILabel, topAnchor: UIView, leadingAnchor: UIView) {
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: 20),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor.trailingAnchor, constant: 5),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            label.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+    }
+    
     private func createButton(with title: String) -> UIButton {
         let shortButton = CustomButton(customTitle: title)
         shortButton.translatesAutoresizingMaskIntoConstraints = false
         shortButton.layer.cornerRadius = 17.5
         shortButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-          
+        
         return shortButton
     }
     
     private func createLabel(with text: String) -> UILabel {
         let shortLabel = UILabel()
         shortLabel.text = text
-         
+        
         shortLabel.textColor = .greyLabel
         shortLabel.font = UIFont.boldSystemFont(ofSize: 16.7)
         shortLabel.lineBreakMode = .byWordWrapping
