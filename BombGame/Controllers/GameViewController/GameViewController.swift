@@ -88,6 +88,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     stopAllSoundsAndAnimations()
+    endGame()
   }
 
   private func subviews() {
@@ -294,6 +295,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   private func endGame() {
     gameTimer?.cancel()
     gameTimer = nil
+    playerTimer = nil
   }
 
   func playTimerSound() {

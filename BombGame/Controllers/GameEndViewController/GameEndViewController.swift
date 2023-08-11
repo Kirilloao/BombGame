@@ -71,6 +71,7 @@ class GameEndViewController: UIViewController {
     setupConstraints()
     createStackView()
     navigationItem.title = "Игра"
+    
   }
 
   // MARK: - Actions
