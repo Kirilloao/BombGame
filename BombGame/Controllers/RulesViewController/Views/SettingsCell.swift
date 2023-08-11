@@ -23,7 +23,7 @@ class SettingsCell: UITableViewCell {
     lazy var mainLabel: UILabel = {
         var mainLabel = UILabel()
         mainLabel.text = "В настройках игры можно задать время взрыва бомбы:"
-         
+        
         mainLabel.textColor = .greyLabel
         mainLabel.font = UIFont.boldSystemFont(ofSize: 16.7)
         mainLabel.lineBreakMode = .byWordWrapping
@@ -34,7 +34,7 @@ class SettingsCell: UITableViewCell {
         return mainLabel
         
     }()
-
+    
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -72,7 +72,6 @@ class SettingsCell: UITableViewCell {
         ])
         
         // setup constraints to mainLabel
-        // setup constraints to ruleLabel
         NSLayoutConstraint.activate([
             mainLabel.topAnchor.constraint(
                 equalTo: contentView.topAnchor,
@@ -86,7 +85,6 @@ class SettingsCell: UITableViewCell {
                 equalTo: contentView.trailingAnchor,
                 constant: -20
             ),
-//            mainLabel.heightAnchor.constraint(equalToConstant: 40)
             mainLabel.bottomAnchor.constraint(
                 equalTo: contentView.bottomAnchor,
                 constant: -5

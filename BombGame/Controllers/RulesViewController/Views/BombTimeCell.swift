@@ -119,7 +119,7 @@ class BombTimeCell: UITableViewCell {
         
         // setup constraints to longLabel
         setupContraintsToLabel(longLabel, topAnchor: middleLabel, leadingAnchor: longButton)
-
+        
         // setup constraints to randomButton
         setupConstraintsToButton(randomButton, topAnchor: longButton)
         
