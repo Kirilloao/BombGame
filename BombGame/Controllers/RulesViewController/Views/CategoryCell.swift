@@ -150,7 +150,7 @@ class CategoryViewCell: UICollectionViewCell {
         ])
     }
     
-    func setupViews(_ category: Category) {
+    func setupViews(_ category: CategoryRules) {
         categoryImageView.image = UIImage(named: category.image)
         categoryLabel.text = category.name
     }

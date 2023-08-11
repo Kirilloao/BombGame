@@ -43,6 +43,7 @@
 		578BE8C82A83FE3500C0C0DF /* explosion2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8BF2A83FE3400C0C0DF /* explosion2.mp3 */; };
 		578BE8C92A83FE3500C0C0DF /* explosion3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C02A83FE3500C0C0DF /* explosion3.mp3 */; };
 		578BE8CA2A83FE3500C0C0DF /* fon3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C12A83FE3500C0C0DF /* fon3.mp3 */; };
+		578BE8D42A85669600C0C0DF /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D32A85669600C0C0DF /* Constans.swift */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		578BE8BF2A83FE3400C0C0DF /* explosion2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion2.mp3; sourceTree = "<group>"; };
 		578BE8C02A83FE3500C0C0DF /* explosion3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion3.mp3; sourceTree = "<group>"; };
 		578BE8C12A83FE3500C0C0DF /* fon3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fon3.mp3; sourceTree = "<group>"; };
+		578BE8D32A85669600C0C0DF /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 		C30A18842A8558D000E8350E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 				17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */,
 				3CA0F15D2A851D14005B64FA /* CategoryTestModel.swift */,
 				3CA0F15B2A851CF7005B64FA /* Rule.swift */,
+				578BE8D32A85669600C0C0DF /* Constans.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				17884B9C2A82B8FD00975BA6 /* CategoryCollectionView.swift in Sources */,
 				57632A4C2A805CF900410D1C /* AppDelegate.swift in Sources */,
 				57632A7D2A81742300410D1C /* CustomButton.swift in Sources */,
+				578BE8D42A85669600C0C0DF /* Constans.swift in Sources */,
 				3CA0F15E2A851D14005B64FA /* CategoryTestModel.swift in Sources */,
 				3CA0F1532A851CBA005B64FA /* RulesViewController.swift in Sources */,
 				C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */,
