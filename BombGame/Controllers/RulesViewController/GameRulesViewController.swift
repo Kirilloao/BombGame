@@ -61,7 +61,7 @@ class GameRulesViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             mainTableView.topAnchor.constraint(
-                equalTo: view.topAnchor, constant: 30
+                equalTo: view.safeAreaLayoutGuide.topAnchor
             ),
             mainTableView.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor,

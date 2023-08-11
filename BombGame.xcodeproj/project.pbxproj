@@ -234,9 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				3CA0F1542A851CD6005B64FA /* Views */,
+				3CA0F1502A851CBA005B64FA /* RulesViewController.swift */,
 				3CA0F14E2A851CBA005B64FA /* GameRulesViewController.swift */,
 				3CA0F14F2A851CBA005B64FA /* RulesCategoryViewController.swift */,
-				3CA0F1502A851CBA005B64FA /* RulesViewController.swift */,
 			);
 			path = RulesViewController;
 			sourceTree = "<group>";
