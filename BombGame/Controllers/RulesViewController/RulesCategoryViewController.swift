@@ -109,8 +109,7 @@ class RulesCategoryViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(
-                equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: 0
+                equalTo: view.safeAreaLayoutGuide.topAnchor
             ),
             stackView.leadingAnchor.constraint(
                 equalTo: view.leadingAnchor,

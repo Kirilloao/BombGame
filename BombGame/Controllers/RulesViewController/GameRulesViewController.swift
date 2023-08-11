@@ -8,72 +8,82 @@
 import UIKit
 
 class GameRulesViewController: UIViewController {
-
-  // MARK: - Private Properties
-  private var mainTableView = UITableView()
-  private let rules = Rule.getRules()
-
-  private lazy var gradientView: GradientView = {
-    let gradientView = GradientView(frame: view.bounds)
-    gradientView.translatesAutoresizingMaskIntoConstraints = false
-
-    return gradientView
-  }()
-
-  // MARK: - Life Cycle Methods
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.addSubview(gradientView)
-    view.addSubview(mainTableView)
-
-    navigationItem.title = "Помощь"
-    setupTableView()
-    setupConstraints()
-  }
-
-  // MARK: - Private Methods
-  private func setupTableView() {
-    mainTableView.sectionHeaderHeight = 60
-    mainTableView.separatorStyle = .none
-
-    mainTableView.register(
-      CustomCell.self,
-      forCellReuseIdentifier: "cell"
-    )
-
-    mainTableView.register(
-      CustomButtonCell.self,
-      forCellReuseIdentifier: "cellWithButton"
-    )
-
-    mainTableView.showsVerticalScrollIndicator = false
-    mainTableView.isScrollEnabled = false
-
-    mainTableView.delegate = self
-    mainTableView.dataSource = self
-
-    mainTableView.backgroundColor = .clear
-  }
-
-  private func setupConstraints() {
-    // setup constraints to myTableView
-    mainTableView.translatesAutoresizingMaskIntoConstraints = false
-
-    NSLayoutConstraint.activate([
-      mainTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-      mainTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-      mainTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-      mainTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    ])
-
-    // setup constraints to gradientView
-    NSLayoutConstraint.activate([
-      gradientView.topAnchor.constraint(equalTo: view.topAnchor),
-      gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-    ])
-  }
+    
+    // MARK: - Private Properties
+    private var mainTableView = UITableView()
+    private let rules = Rule.getRules()
+    
+    private lazy var gradientView: GradientView = {
+        let gradientView = GradientView(frame: view.bounds)
+        gradientView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return gradientView
+    }()
+    
+    // MARK: - Life Cycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(gradientView)
+        view.addSubview(mainTableView)
+        
+        navigationItem.title = "Помощь"
+        setupTableView()
+        setupConstraints()
+    }
+    
+    // MARK: - Private Methods
+    private func setupTableView() {
+        mainTableView.sectionHeaderHeight = 60
+        mainTableView.separatorStyle = .none
+        
+        mainTableView.register(
+            CustomCell.self,
+            forCellReuseIdentifier: "cell"
+        )
+        
+        mainTableView.register(
+            CustomButtonCell.self,
+            forCellReuseIdentifier: "cellWithButton"
+        )
+        
+        mainTableView.showsVerticalScrollIndicator = false
+        mainTableView.isScrollEnabled = false
+        
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        
+        mainTableView.backgroundColor = .clear
+    }
+    
+    private func setupConstraints() {
+        // setup constraints to myTableView
+        mainTableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            mainTableView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor
+            ),
+            mainTableView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: 10
+            ),
+            mainTableView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -10
+            ),
+            mainTableView.bottomAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.bottomAnchor
+            )
+        ])
+        
+        // setup constraints to gradientView
+        NSLayoutConstraint.activate([
+            gradientView.topAnchor.constraint(equalTo: view.topAnchor),
+            gradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+    }
 }
 
 // MARK: - UITableViewDataSource

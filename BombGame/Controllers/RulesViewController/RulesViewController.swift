@@ -24,8 +24,9 @@ class RulesViewController: UIPageViewController {
         
         let viewController1 = GameRulesViewController()
         let viewController2 = RulesCategoryViewController()
+        let viewController3 = RulesSettingsViewController()
         
-        pages = [viewController1, viewController2]
+        pages = [viewController1, viewController2, viewController3]
     }
     
     // MARK: - Init PageViewController
