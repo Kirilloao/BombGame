@@ -9,10 +9,11 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+  private let collectionView = CategoryCollectionView()
+
   private lazy var gradientView: GradientView = {
     let gradientView = GradientView(frame: view.bounds)
     gradientView.translatesAutoresizingMaskIntoConstraints = false
-
     return gradientView
   }()
 
@@ -54,7 +55,7 @@ class MainViewController: UIViewController {
     setup()
     subviews()
     setupConstraints()
-
+//    collectionView.selectDefaultCategory()
   }
 
   private func subviews() {
