@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class K {
+    static let arrayFon = ["Мелодия 1", "Мелодия 2", "Мелодия 3"]
+}
