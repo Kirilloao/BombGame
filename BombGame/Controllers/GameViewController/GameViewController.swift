@@ -28,6 +28,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   var gameDuration: TimeInterval = 10
   var remainingTime: TimeInterval = 0
   var gamePausedTime: Date?
+    let normalImage = UIImage(systemName: "pause.circle")
+    let pressedImage = UIImage(systemName: "play.circle")
 
   let questions = DataManager.shared.categories
     .filter { UserDefaultsManager.shared.selectedCategories.contains($0.name) }
@@ -128,7 +130,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   }
 
   private func addRightNavButton() {
-    let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "pause.circle"), style: .plain, target: self, action: #selector(pauseButtonPressed))
+    let rightBarButton = UIBarButtonItem(image: normalImage, style: .plain, target: self, action: #selector(pauseButtonPressed))
     navigationItem.rightBarButtonItem = rightBarButton
   }
 
@@ -166,6 +168,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
       bombLongImageView.isHidden = true
       textLabelPause.isHidden = false
       gameTimer?.suspend()
+        navigationItem.rightBarButtonItem?.image = pressedImage
     } else if gameState == .paused {
       let timeElapsed = Date().timeIntervalSince(gamePausedTime ?? Date())
       playerBG?.play()
@@ -186,6 +189,8 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
       bombLongImageView.isHidden = false
       textLabelPause.isHidden = true
       gameTimer?.resume()
+        navigationItem.rightBarButtonItem?.image = normalImage
+        
     }
   }
 
