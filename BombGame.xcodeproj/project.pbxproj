@@ -44,7 +44,6 @@
 		578BE8C92A83FE3500C0C0DF /* explosion3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C02A83FE3500C0C0DF /* explosion3.mp3 */; };
 		578BE8CA2A83FE3500C0C0DF /* fon3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 578BE8C12A83FE3500C0C0DF /* fon3.mp3 */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
-		C30A18852A8558D000E8350E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18842A8558D000E8350E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				17A0FB282A83C14B006A93B6 /* NavigationBar.swift */,
+				C30A18842A8558D000E8350E /* Constants.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -375,7 +375,6 @@
 				3CA0F1522A851CBA005B64FA /* RulesCategoryViewController.swift in Sources */,
 				57632A602A805DA700410D1C /* Colors.swift in Sources */,
 				57632A882A82AB1600410D1C /* NavigationBar.swift in Sources */,
-				C30A18852A8558D000E8350E /* Constants.swift in Sources */,
 				57632A782A80624800410D1C /* SettingsViewController.swift in Sources */,
 				57632A622A805DC900410D1C /* GradientView.swift in Sources */,
 				17A0FB2B2A83EB2A006A93B6 /* DataModeler.swift in Sources */,
