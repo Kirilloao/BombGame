@@ -46,6 +46,8 @@
 		578BE8D42A85669600C0C0DF /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D32A85669600C0C0DF /* Constans.swift */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
 		C30A188A2A866DE700E8350E /* MusicPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18892A866DE700E8350E /* MusicPickerView.swift */; };
+		C30A188C2A86C3CC00E8350E /* TickPickerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A188B2A86C3CC00E8350E /* TickPickerVIew.swift */; };
+		C30A188E2A86C3D500E8350E /* ExplosionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A188D2A86C3D500E8350E /* ExplosionPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,8 @@
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 		C30A18842A8558D000E8350E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C30A18892A866DE700E8350E /* MusicPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPickerView.swift; sourceTree = "<group>"; };
+		C30A188B2A86C3CC00E8350E /* TickPickerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickPickerVIew.swift; sourceTree = "<group>"; };
+		C30A188D2A86C3D500E8350E /* ExplosionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				C30A18892A866DE700E8350E /* MusicPickerView.swift */,
+				C30A188B2A86C3CC00E8350E /* TickPickerVIew.swift */,
+				C30A188D2A86C3D500E8350E /* ExplosionPickerView.swift */,
 			);
 			path = Pickers;
 			sourceTree = "<group>";
@@ -402,8 +408,10 @@
 				3CA0F1532A851CBA005B64FA /* RulesViewController.swift in Sources */,
 				C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */,
 				57632A6E2A8061C600410D1C /* CategoryViewController.swift in Sources */,
+				C30A188C2A86C3CC00E8350E /* TickPickerVIew.swift in Sources */,
 				57632A722A8061E900410D1C /* GameEndViewController.swift in Sources */,
 				3CA0F1662A853AFE005B64FA /* CustomCell.swift in Sources */,
+				C30A188E2A86C3D500E8350E /* ExplosionPickerView.swift in Sources */,
 				57632A4E2A805CF900410D1C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
