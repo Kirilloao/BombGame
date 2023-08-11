@@ -75,6 +75,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Игра"
+        textLabelPause.isHidden = true
         addRightNavButton()
         setup()
         subviews()
@@ -87,6 +88,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         view.addSubview(gradientView)
         view.addSubview(textLabel)
         view.addSubview(playButton)
+        view.addSubview(textLabelPause)
     }
     func setupConstraints() {
         NSLayoutConstraint.activate([
