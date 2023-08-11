@@ -8,7 +8,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
     
     private lazy var gradientView: GradientView = {
         let gradientView = GradientView(frame: view.bounds)
@@ -17,28 +16,58 @@ class SettingsViewController: UIViewController {
         return gradientView
     }()
     
-    private lazy var musicPicker: UIPickerView = {
-        let picker = UIPickerView()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var musicPickerView: MusicPickerView = {
+        let picker = MusicPickerView()
+        picker.isHidden = true
         return picker
     }()
     
-    private lazy var tickPicker: UIPickerView = {
-        let picker = UIPickerView()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var selectedMusicLabel: UILabel = {
+        let label = UILabel()
+        label.text = K.arrayFon[0]
+        label.textColor = .purpleLabel
+        label.font = .boldSystemFont(ofSize: 20)
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedMusicLabelTapped))
+        label.addGestureRecognizer(tapGesture)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var tickPickerView: TickPickerView = {
+        let picker = TickPickerView()
+        picker.isHidden = true
         return picker
     }()
     
-    private lazy var explosionPicker: UIPickerView = {
-        let picker = UIPickerView()
-        picker.delegate = self
-        picker.dataSource = self
-        picker.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var selectedTickLabel: UILabel = {
+        let label = UILabel()
+        label.text = K.arrayTick[0]
+        label.textColor = .purpleLabel
+        label.font = .boldSystemFont(ofSize: 20)
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedTickLabelTapped))
+        label.addGestureRecognizer(tapGesture)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var explosionPickerView: ExplosionPickerView = {
+        let picker = ExplosionPickerView()
+        picker.isHidden = true
         return picker
+    }()
+    
+    private lazy var selectedExplosionLabel: UILabel = {
+        let label = UILabel()
+        label.text = K.arrayExplosion[0]
+        label.textColor = .purpleLabel
+        label.font = .boldSystemFont(ofSize: 20)
+        label.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(selectedExplosionLabelTapped))
+        label.addGestureRecognizer(tapGesture)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     private lazy var taskSwitch: UISwitch = {
@@ -124,9 +153,9 @@ class SettingsViewController: UIViewController {
         subviews()
         setupConstraints()
         setup()
+        musicPickerView.musicPickerDelegate = self
     }
     
-
     private func subviews() {
         view.addSubview(gradientView)
         view.addSubview(timeLabel)
@@ -141,9 +170,13 @@ class SettingsViewController: UIViewController {
         view.addSubview(explosionLabel)
         view.addSubview(taskSwitch)
         view.addSubview(musicSwitch)
-        view.addSubview(musicPicker)
-        view.addSubview(tickPicker)
-        view.addSubview(explosionPicker)
+        view.addSubview(musicPickerView)
+        view.addSubview(selectedMusicLabel)
+        view.addSubview(tickPickerView)
+        view.addSubview(selectedTickLabel)
+        view.addSubview(explosionPickerView)
+        view.addSubview(selectedExplosionLabel)
+        
     }
     
     func setupConstraints() {
@@ -197,16 +230,29 @@ class SettingsViewController: UIViewController {
             musicSwitch.topAnchor.constraint(equalTo: taskLabel.bottomAnchor, constant: 55),
             musicSwitch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            musicPicker.topAnchor.constraint(equalTo: backMusicLabel.bottomAnchor, constant: 55),
-            musicPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            musicPicker.widthAnchor.constraint(equalToConstant: 100),
+            musicPickerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
+            musicPickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            tickPicker.topAnchor.constraint(equalTo: musicLabel.bottomAnchor, constant: 55),
-            tickPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            selectedMusicLabel.topAnchor.constraint(equalTo: backMusicLabel.bottomAnchor, constant: 55),
+            selectedMusicLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            selectedMusicLabel.widthAnchor.constraint(equalToConstant: 120),
             
-            explosionPicker.topAnchor.constraint(equalTo: tickLabel.bottomAnchor, constant: 55),
-            explosionPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-
+            tickPickerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
+            tickPickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            selectedTickLabel.topAnchor.constraint(equalTo: musicLabel.bottomAnchor, constant: 55),
+            selectedTickLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 15),
+            selectedTickLabel.widthAnchor.constraint(equalToConstant: 120),
+            
+            explosionPickerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 15),
+            explosionPickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            selectedExplosionLabel.topAnchor.constraint(equalTo: tickLabel.bottomAnchor, constant: 55),
+            selectedExplosionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 22),
+            selectedExplosionLabel.widthAnchor.constraint(equalToConstant: 120),
+            
+            
+            
         ])
     }
     
@@ -252,23 +298,37 @@ class SettingsViewController: UIViewController {
             print("Disabled")
         }
     }
-}
-
-extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    
+    @objc private func selectedMusicLabelTapped() {
+        musicPickerView.isHidden.toggle()
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 3
+    @objc private func selectedTickLabelTapped() {
+        tickPickerView.isHidden.toggle()
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "K.fon[row]"
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        return print("didSelectRow")
+    @objc private func selectedExplosionLabelTapped() {
+        explosionPickerView.isHidden.toggle()
     }
 }
 
+extension SettingsViewController: MusicPickerDelegate {
+    func didSelectMusicValue(_ value: String) {
+        selectedMusicLabel.text = value
+        musicPickerView.isHidden = true
+    }
+}
+
+extension SettingsViewController: TickPickerDelegate {
+    func didSelectTickValue(_ value: String) {
+        selectedTickLabel.text = value
+        tickPickerView.isHidden = true
+    }
+}
+
+extension SettingsViewController: ExplosionPickerDelegate {
+    func didSelectExplosionValue(_ value: String) {
+        selectedExplosionLabel.text = value
+        explosionPickerView.isHidden = true
+    }
+}
