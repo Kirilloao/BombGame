@@ -1,5 +1,5 @@
 //
-//  MusicPickerView.swift
+//  TickPickerView.swift
 //  BombGame
 //
 //  Created by Elshad Babaev on 11.08.2023.
@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol MusicPickerDelegate: AnyObject {
-    func didSelectMusicValue(_ value: String)
+protocol TickPickerDelegate: AnyObject {
+    func didSelectTickValue(_ value: String)
 }
 
-class MusicPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
+class TickPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 
-  weak var musicPickerDelegate: MusicPickerDelegate?
+  weak var tickPickerDelegate: TickPickerDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,11 +36,11 @@ class MusicPickerView: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSourc
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-      return K.arrayFon[row]
+      return K.arrayTick[row]
     }
 
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-         let selectedValue = K.arrayFon[row]
-        musicPickerDelegate?.didSelectMusicValue(selectedValue)
+         let selectedValue = K.arrayTick[row]
+        tickPickerDelegate?.didSelectTickValue(selectedValue)
      }
 }
