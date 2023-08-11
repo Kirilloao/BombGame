@@ -42,10 +42,5 @@ class CustomButton: UIButton {
     self.layer.borderWidth = 1.0
 
     self.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width * 2 / 3),
-            self.heightAnchor.constraint(equalToConstant: 80)
-        ])
     }
 }
