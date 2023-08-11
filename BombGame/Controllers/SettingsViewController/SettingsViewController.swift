@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
+  var audioPlayer: AVAudioPlayer?
 
   private lazy var gradientView: GradientView = {
     let gradientView = GradientView(frame: view.bounds)
@@ -244,12 +246,37 @@ class SettingsViewController: UIViewController {
 
   @objc private func selectedMusicLabelTapped() {
     musicPickerView.isHidden.toggle()
+    audioPlayer?.stop()
   }
 }
 
 extension SettingsViewController: MusicPickerDelegate {
-  func didSelectMusicValue(_ value: String) {
-    selectedMusicLabel.text = value
-    musicPickerView.isHidden = true
-  }
+    func didSelectMusicValue(_ value: String) {
+        selectedMusicLabel.text = value
+        musicPickerView.isHidden = true
+
+        audioPlayer?.stop()
+
+        var audioFileName = ""
+
+        if value == "Мелодия 1" {
+            audioFileName = "fon1"
+        } else if value == "Мелодия 2" {
+            audioFileName = "fon2"
+        } else if value == "Мелодия 3" {
+            audioFileName = "fon3"
+        }
+
+      UserDefaultsManager.shared.fonMusic = audioFileName
+
+        if let audioURL = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: audioURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.play()
+            } catch {
+                print("Error creating audio player: \(error)")
+            }
+        }
+    }
 }
