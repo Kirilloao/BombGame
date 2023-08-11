@@ -39,6 +39,7 @@ class RulesSettingsViewController: UIViewController {
         mainTableView.delegate = self
 
         mainTableView.register(SettingsCell.self, forCellReuseIdentifier: "settingsCell")
+        mainTableView.register(BombTimeCell.self, forCellReuseIdentifier: "bombTimeCell")
         mainTableView.translatesAutoresizingMaskIntoConstraints = false
         
         mainTableView.sectionHeaderHeight = 60
@@ -46,6 +47,8 @@ class RulesSettingsViewController: UIViewController {
         
         mainTableView.showsVerticalScrollIndicator = false
         mainTableView.isScrollEnabled = false
+        
+        mainTableView.backgroundColor = .clear
         
     }
     
@@ -90,10 +93,21 @@ extension RulesSettingsViewController: UITableViewDataSource {
         if indexPath.section == 0 && indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath) as? SettingsCell else { return UITableViewCell() }
             
+            cell.backgroundColor = .clear
             return cell
+            
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "bombTimeCell", for: indexPath) as? BombTimeCell else { return UITableViewCell() }
+            
+            cell.backgroundColor = .clear
+            
+            return cell
+            
         } else {
             return UITableViewCell()
         }
+        
+        
    
     }
 }
