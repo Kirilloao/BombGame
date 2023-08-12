@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AVKit
 import AVFoundation
 
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
@@ -284,11 +283,11 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
           playerBG?.numberOfLoops = -1
           playerBG?.volume = 0.5
           playerBG?.prepareToPlay()
+          playerBG?.play()
         } catch {
           print("Ошибка создания цикла \(error)")
         }
       }
-      playerBG!.play()
       DispatchQueue.main.asyncAfter(deadline: .now() + gameDuration) {
         self.playerBG!.stop()
       }
@@ -304,7 +303,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
           self?.playerTimer = try AVAudioPlayer(contentsOf: soundPath)
           self?.playerTimer?.numberOfLoops = -1
           self?.playerTimer?.prepareToPlay()
-
           self?.playerTimer?.play()
           DispatchQueue.main.asyncAfter(deadline: .now() + remainingTime) { [weak self] in
             self?.playerTimer?.stop()
@@ -321,7 +319,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     if let additionalSoundPath = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
       do {
         bombSoundPlayer = try AVAudioPlayer(contentsOf: additionalSoundPath)
-        bombSoundPlayer?.delegate = self
         bombSoundPlayer?.prepareToPlay()
         bombSoundPlayer?.play()
       } catch {
