@@ -206,7 +206,6 @@ class RulesCategoryViewController: UIViewController {
         view.addSubview(stackView)
         
         setupStackView()
-        
         setupConstraintsToGradient()
     }
     
@@ -240,7 +239,6 @@ class RulesCategoryViewController: UIViewController {
     }
     
     private func setupStackView() {
-        
         stackView.axis = .vertical
         stackView.spacing = 15
         stackView.alignment = .fill

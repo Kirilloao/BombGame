@@ -10,58 +10,51 @@ import UIKit
 class BombTimeCell: UITableViewCell {
     
     // MARK: - Buttons
-    lazy var shortButton: CustomButton = {
+    private lazy var shortButton: CustomButton = {
         var shortButton = createButton(with: "Короткое")
         
         return shortButton as! CustomButton
     }()
     
-    lazy var middleButton: CustomButton = {
+    private lazy var middleButton: CustomButton = {
         var shortButton = createButton(with: "Среднее")
         
         return shortButton as! CustomButton
     }()
     
-    lazy var longButton: CustomButton = {
+    private lazy var longButton: CustomButton = {
         var shortButton = createButton(with: "Длинное")
         
         return shortButton as! CustomButton
     }()
     
-    lazy var randomButton: CustomButton = {
+    private lazy var randomButton: CustomButton = {
         var shortButton = createButton(with: "Cлучайное")
         
         return shortButton as! CustomButton
     }()
     
-    
-    
-    
     // MARK: - Labels
-    lazy var shortLabel: UILabel = {
+    private lazy var shortLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 10 секунд.")
         
-        
         return shortLabel
     }()
     
-    lazy var middleLabel: UILabel = {
+    private lazy var middleLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 20 секунд.")
         
-        
         return shortLabel
     }()
     
-    lazy var longLabel: UILabel = {
+    private lazy var longLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 45 секунд.")
         
-        
         return shortLabel
     }()
     
-    lazy var randomLabel: UILabel = {
+    private lazy var randomLabel: UILabel = {
         var shortLabel = createLabel(with: "Бомба взорвется в течении 10-45 секунд.")
-        
         
         return shortLabel
     }()
@@ -79,6 +72,7 @@ class BombTimeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private Methods
     private func addSubviews() {
         contentView.addSubview(shortButton)
         contentView.addSubview(shortLabel)
@@ -94,17 +88,32 @@ class BombTimeCell: UITableViewCell {
         
         // setup constraints to shortButton
         NSLayoutConstraint.activate([
-            shortButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            shortButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            shortButton.topAnchor.constraint(
+                equalTo: contentView.topAnchor,
+                constant: 20
+            ),
+            shortButton.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor,
+                constant: 10
+            ),
             shortButton.heightAnchor.constraint(equalToConstant: 35),
             shortButton.widthAnchor.constraint(equalToConstant: 120)
         ])
         
-        //         setup constraints to shortLabel
+        // setup constraints to shortLabel
         NSLayoutConstraint.activate([
-            shortLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            shortLabel.leadingAnchor.constraint(equalTo: shortButton.trailingAnchor, constant: 5),
-            shortLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            shortLabel.topAnchor.constraint(
+                equalTo: contentView.topAnchor
+                , constant: 20
+            ),
+            shortLabel.leadingAnchor.constraint(
+                equalTo: shortButton.trailingAnchor,
+                constant: 5
+            ),
+            shortLabel.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: 0
+            ),
             shortLabel.heightAnchor.constraint(equalToConstant: 40)
         ])
         
@@ -112,30 +121,56 @@ class BombTimeCell: UITableViewCell {
         setupConstraintsToButton(middleButton, topAnchor: shortButton)
         
         // setup constraints to middleLabel
-        setupContraintsToLabel(middleLabel, topAnchor: shortLabel, leadingAnchor: middleButton)
+        setupContraintsToLabel(
+            middleLabel,
+            topAnchor: shortLabel,
+            leadingAnchor: middleButton
+        )
         
         // setup constraints to longButton
         setupConstraintsToButton(longButton, topAnchor: middleButton)
         
         // setup constraints to longLabel
-        setupContraintsToLabel(longLabel, topAnchor: middleLabel, leadingAnchor: longButton)
+        setupContraintsToLabel(
+            longLabel,
+            topAnchor: middleLabel,
+            leadingAnchor: longButton
+        )
         
         // setup constraints to randomButton
         setupConstraintsToButton(randomButton, topAnchor: longButton)
         
         // setup constraints to randomLabel
         NSLayoutConstraint.activate([
-            randomLabel.topAnchor.constraint(equalTo: longButton.bottomAnchor, constant: 20),
-            randomLabel.leadingAnchor.constraint(equalTo: randomButton.trailingAnchor, constant: 5),
-            randomLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            randomLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
+            randomLabel.topAnchor.constraint(
+                equalTo: longButton.bottomAnchor,
+                constant: 20
+            ),
+            randomLabel.leadingAnchor.constraint(
+                equalTo: randomButton.trailingAnchor,
+                constant: 5
+            ),
+            randomLabel.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: 0
+            ),
+            randomLabel.bottomAnchor.constraint(
+                equalTo: contentView.bottomAnchor,
+                constant: -10
+            )
         ])
     }
     
     private func setupConstraintsToButton(_ button: UIButton, topAnchor: UIButton) {
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: 25),
-            button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            button.topAnchor.constraint(
+                equalTo: topAnchor.bottomAnchor,
+                constant: 25
+            ),
+            button.leadingAnchor.constraint(
+                equalTo: contentView.leadingAnchor,
+                constant: 10
+            ),
             button.heightAnchor.constraint(equalToConstant: 35),
             button.widthAnchor.constraint(equalToConstant: 120)
         ])
@@ -143,9 +178,18 @@ class BombTimeCell: UITableViewCell {
     
     private func setupContraintsToLabel(_ label: UILabel, topAnchor: UIView, leadingAnchor: UIView) {
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: 20),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor.trailingAnchor, constant: 5),
-            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            label.topAnchor.constraint(
+                equalTo: topAnchor.bottomAnchor,
+                constant: 20
+            ),
+            label.leadingAnchor.constraint(
+                equalTo: leadingAnchor.trailingAnchor,
+                constant: 5
+            ),
+            label.trailingAnchor.constraint(
+                equalTo: contentView.trailingAnchor,
+                constant: 0
+            ),
             label.heightAnchor.constraint(equalToConstant: 40)
         ])
         
@@ -153,6 +197,7 @@ class BombTimeCell: UITableViewCell {
     
     private func createButton(with title: String) -> UIButton {
         let shortButton = CustomButton(customTitle: title)
+        
         shortButton.translatesAutoresizingMaskIntoConstraints = false
         shortButton.layer.cornerRadius = 17.5
         shortButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)

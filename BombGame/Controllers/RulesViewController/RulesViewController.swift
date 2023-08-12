@@ -19,7 +19,7 @@ class RulesViewController: UIPageViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Помощь"
-
+        
         dataSource = self
         
         let viewController1 = GameRulesViewController()
@@ -29,7 +29,7 @@ class RulesViewController: UIPageViewController {
         pages = [viewController1, viewController2, viewController3]
     }
     
-    // MARK: - Init PageViewController
+    // MARK: - Init
     override init(transitionStyle style: UIPageViewController.TransitionStyle,
                   navigationOrientation: UIPageViewController.NavigationOrientation,
                   options: [UIPageViewController.OptionsKey : Any]? = nil) {
