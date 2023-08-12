@@ -21,7 +21,6 @@ struct UserDefaultsManager {
         }
         set {
           defaults.set(newValue, forKey: "fonMusic")
-          defaults.synchronize()
         }
     }
 
@@ -31,7 +30,6 @@ struct UserDefaultsManager {
         }
         set {
           defaults.set(newValue, forKey: "timerMusic")
-          defaults.synchronize()
         }
     }
 
@@ -41,7 +39,6 @@ struct UserDefaultsManager {
         }
         set {
           defaults.set(newValue, forKey: "explosionMusic")
-          defaults.synchronize()
         }
     }
 
@@ -51,9 +48,25 @@ struct UserDefaultsManager {
           }
           set {
               defaults.set(newValue, forKey: "selectedCategories")
-              defaults.synchronize()
           }
       }
-  
+
+  var taskSwitchState: Bool {
+      get {
+          return defaults.bool(forKey: "taskSwitchState")
+      }
+      set {
+          defaults.set(newValue, forKey: "taskSwitchState")
+      }
+  }
+
+  var musicSwitchState: Bool {
+      get {
+          return defaults.bool(forKey: "musicSwitchState")
+      }
+      set {
+          defaults.set(newValue, forKey: "musicSwitchState")
+      }
+  }
 }
 

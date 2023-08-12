@@ -44,7 +44,6 @@ class GameEndViewController: UIViewController {
       font: UIFont.boldSystemFont(ofSize: 20),
       lines: 0
     )
-
     return label
   }()
 
@@ -71,7 +70,10 @@ class GameEndViewController: UIViewController {
     setupConstraints()
     createStackView()
     navigationItem.title = "Игра"
-    
+    if UserDefaultsManager.shared.taskSwitchState == false {
+      descriptionTaskLabel.isHidden = true
+      taskLabel.isHidden = true
+        }
   }
 
   // MARK: - Actions
