@@ -9,7 +9,7 @@
 <img src="https://img.shields.io/badge/No storyboard-purple" alt="MVC" /></a>
 </p>
 
-### Participated in the development of the application:
+### В разработке участвовали:
 <p align="left"> 
 <a href="https://github.com/marinayudina">
 <img src="https://img.shields.io/badge/marinayudina-red"/></a>
