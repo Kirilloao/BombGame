@@ -224,22 +224,22 @@ class SettingsViewController: UIViewController {
       timeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
 
       shortButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 15),
-      shortButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+      shortButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
       shortButton.heightAnchor.constraint(equalToConstant: 40),
       shortButton.widthAnchor.constraint(equalToConstant: 150),
 
       normalButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 15),
-      normalButton.leadingAnchor.constraint(equalTo: shortButton.trailingAnchor, constant: 10),
+      normalButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
       normalButton.heightAnchor.constraint(equalToConstant: 40),
       normalButton.widthAnchor.constraint(equalToConstant: 150),
 
       longButton.topAnchor.constraint(equalTo: shortButton.bottomAnchor, constant: 10),
-      longButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 60),
+      longButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
       longButton.heightAnchor.constraint(equalToConstant: 40),
       longButton.widthAnchor.constraint(equalToConstant: 150),
 
       randomButton.topAnchor.constraint(equalTo: normalButton.bottomAnchor, constant: 10),
-      randomButton.leadingAnchor.constraint(equalTo: longButton.trailingAnchor, constant: 10),
+      randomButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
       randomButton.heightAnchor.constraint(equalToConstant: 40),
       randomButton.widthAnchor.constraint(equalToConstant: 150),
 
@@ -338,17 +338,17 @@ class SettingsViewController: UIViewController {
   private func updateUIWithSelectedGameDuration() {
     let selectedDuration = UserDefaultsManager.shared.gameDuration
 
-    shortButton.backgroundColor = selectedDuration == 10 ? .purpleLabel : .yellowLabel
-    shortButton.setTitleColor(selectedDuration == 10 ? .yellowLabel : .purpleLabel, for: .normal)
+    shortButton.backgroundColor = selectedDuration == 10 ? .purpleColor : .yellowLabel
+    shortButton.setTitleColor(selectedDuration == 10 ? .yellowLabel : .purpleColor, for: .normal)
 
-    normalButton.backgroundColor = selectedDuration == 20 ? .purpleLabel : .yellowLabel
-    normalButton.setTitleColor(selectedDuration == 20 ? .yellowLabel : .purpleLabel, for: .normal)
+    normalButton.backgroundColor = selectedDuration == 20 ? .purpleColor : .yellowLabel
+    normalButton.setTitleColor(selectedDuration == 20 ? .yellowLabel : .purpleColor, for: .normal)
 
-    longButton.backgroundColor = selectedDuration == 45 ? .purpleLabel : .yellowLabel
-    longButton.setTitleColor(selectedDuration == 45 ? .yellowLabel : .purpleLabel, for: .normal)
+    longButton.backgroundColor = selectedDuration == 45 ? .purpleColor : .yellowLabel
+    longButton.setTitleColor(selectedDuration == 45 ? .yellowLabel : .purpleColor, for: .normal)
 
-    randomButton.backgroundColor = selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .purpleLabel : .yellowLabel
-    randomButton.setTitleColor(selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .yellowLabel : .purpleLabel, for: .normal)
+    randomButton.backgroundColor = selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .purpleColor : .yellowLabel
+    randomButton.setTitleColor(selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .yellowLabel : .purpleColor, for: .normal)
   }
 
   @objc func shortButtonPressed() {

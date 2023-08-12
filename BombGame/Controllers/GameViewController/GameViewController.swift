@@ -137,20 +137,20 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
   //MARK: State of game
   @objc func playButtonPressed() {
-      if gameState == .idle || gameState == .paused {
-          if shouldUpdateQuestion {
-              let randomIndex = Int.random(in: 0..<questions.count)
-              let currentQuestion = questions[randomIndex]
-              UserDefaults.standard.set(currentQuestion, forKey: "currentQuestion")
-              textLabel.text = currentQuestion
-          }
-          playButton.isHidden = true
-          gameState = .playing
-          startGameTimer()
-          playBGSound()
-          playTimerSound()
-          startGIFLoop()
+    if gameState == .idle || gameState == .paused {
+      if shouldUpdateQuestion {
+        let randomIndex = Int.random(in: 0..<questions.count)
+        let currentQuestion = questions[randomIndex]
+        UserDefaults.standard.set(currentQuestion, forKey: "currentQuestion")
+        textLabel.text = currentQuestion
       }
+      playButton.isHidden = true
+      gameState = .playing
+      startGameTimer()
+      playBGSound()
+      playTimerSound()
+      bombShortImageView.startAnimating()
+    }
   }
 
   @objc private func pauseButtonPressed() {
@@ -186,12 +186,6 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     playerBG?.play()
     playerTimer?.play()
     gameTimer?.resume()
-
-    let timeElapsed = Date().timeIntervalSince(gamePausedTime ?? Date())
-    if let pausedTime = timerPausedTime {
-      playerTimer?.currentTime = pausedTime + timeElapsed
-      timerPausedTime = nil
-    }
     if let bombSoundPlayer = bombSoundPlayer, !bombSoundPlayer.isPlaying {
       bombSoundPlayer.play()
     }
@@ -208,7 +202,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
   //MARK: Play video
 
-   func setupGIFs() {
+  func setupGIFs() {
 
     guard let bombShortGIF = UIImageView.gifImageWithName(frame: CGRect(x: 0, y: 0, width: 70, height: 70) , resourceName: "bombShort") else {
       fatalError("Failed to load bombShort.gif")
@@ -236,27 +230,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     bombLongImageView.isHidden = true
   }
 
-  private func startGIFLoop() {
-    bombShortImageView.startAnimating()
-    let timeUntilLongGIF: TimeInterval = remainingTime - 0.9
-    let deadline = DispatchTime.now() + timeUntilLongGIF
-    DispatchQueue.global().asyncAfter(deadline: deadline) { [weak self] in
-      DispatchQueue.main.async {
-        self?.switchToLongGIF()
-      }
-    }
-  }
-
   @objc private func switchToLongGIF() {
-    guard gameState == .playing else {
-      return
-    }
     bombShortImageView.isHidden = true
     bombLongImageView.isHidden = false
     bombLongImageView.startAnimating()
     let longGIFDuration: TimeInterval = 0.9
     let deadline = DispatchTime.now() + longGIFDuration
-    self.playBombSound()
     DispatchQueue.global().asyncAfter(deadline: deadline) { [weak self] in
       DispatchQueue.main.async {
         self?.stopGIFLoop()
@@ -283,6 +262,12 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
         if self?.gameDuration == 0 {
           self?.endGame()
         }
+        if self?.gameState != .paused {
+          if self?.gameDuration == 1 {
+            self?.playBombSound()
+            self?.switchToLongGIF()
+          }
+        }
       }
     }
     gameTimer?.resume()
@@ -291,31 +276,31 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
   //MARK: Play sound
 
   private func playBGSound() {
-      if UserDefaultsManager.shared.musicSwitchState {
-          let audioFileName = UserDefaultsManager.shared.fonMusic
-          if let soundPath = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
-              do {
-                  playerBG = try AVAudioPlayer(contentsOf: soundPath)
-                  playerBG?.numberOfLoops = -1
-                  playerBG?.volume = 0.5
-                  playerBG?.prepareToPlay()
-              } catch {
-                  print("Ошибка создания цикла \(error)")
-              }
-          }
-          playerBG!.play()
-          DispatchQueue.main.asyncAfter(deadline: .now() + gameDuration) {
-              self.playerBG!.stop()
-          }
+    if UserDefaultsManager.shared.musicSwitchState {
+      let audioFileName = UserDefaultsManager.shared.fonMusic
+      if let soundPath = Bundle.main.url(forResource: audioFileName, withExtension: "mp3") {
+        do {
+          playerBG = try AVAudioPlayer(contentsOf: soundPath)
+          playerBG?.numberOfLoops = -1
+          playerBG?.volume = 0.5
+          playerBG?.prepareToPlay()
+        } catch {
+          print("Ошибка создания цикла \(error)")
+        }
       }
+      playerBG!.play()
+      DispatchQueue.main.asyncAfter(deadline: .now() + gameDuration) {
+        self.playerBG!.stop()
+      }
+    }
   }
 
   private func playTimerSound() {
     DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
-           let audioFileName = UserDefaultsManager.shared.timerMusic
-           if let soundPath = Bundle.main.url(forResource: audioFileName, withExtension: "mp3"),
-              let remainingTime = self?.remainingTime {
-               do {
+      let audioFileName = UserDefaultsManager.shared.timerMusic
+      if let soundPath = Bundle.main.url(forResource: audioFileName, withExtension: "mp3"),
+         let remainingTime = self?.remainingTime {
+        do {
           self?.playerTimer = try AVAudioPlayer(contentsOf: soundPath)
           self?.playerTimer?.numberOfLoops = -1
           self?.playerTimer?.prepareToPlay()
