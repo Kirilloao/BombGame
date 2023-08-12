@@ -19,6 +19,7 @@ class RulesSettingsViewController: UIViewController {
     
     private let mainTableView = UITableView()
     
+    // MARK: - Private Properties
     private var settingsText = [
         "В настройках игры можно задать время взрыва бомбы:",
         "",
@@ -27,7 +28,6 @@ class RulesSettingsViewController: UIViewController {
     
     private var settingsTextTwo = [
         "Включить / Отключить фоновую музыку.",
-        
         "Выбрать звуки для фоновой музыки, тиканья бомбы и взрыва.",
         ""
     ]
@@ -42,7 +42,6 @@ class RulesSettingsViewController: UIViewController {
         view.addSubview(mainTableView)
         
         setupTableView()
-        
         setupConstraints()
     }
     
@@ -65,6 +64,7 @@ class RulesSettingsViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        
         // setup constraints to gradientView
         NSLayoutConstraint.activate([
             gradientView.topAnchor.constraint(equalTo: view.topAnchor),

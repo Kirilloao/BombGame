@@ -10,8 +10,9 @@ import UIKit
 class CategoryViewCell: UICollectionViewCell {
     
     // MARK: - UI Properties
-    lazy var mainView: UIView = {
+    private lazy var mainView: UIView = {
         var view = UIView()
+        
         view.backgroundColor = .purpleColor
         view.layer.cornerRadius = 20
         view.layer.borderColor = UIColor.black.cgColor
@@ -21,8 +22,9 @@ class CategoryViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var circleView: UIView = {
+    private lazy var circleView: UIView = {
         var view = UIView()
+        
         view.backgroundColor = .white
         view.layer.cornerRadius = 15
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -30,19 +32,20 @@ class CategoryViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var checkmarkSymbol: UILabel = {
+    private lazy var checkmarkSymbol: UILabel = {
         var checkmark = UILabel()
+        
         checkmark.font = UIFont.systemFont(ofSize: 20)
         checkmark.text = "✓"
         checkmark.textColor = .purpleColor
         checkmark.translatesAutoresizingMaskIntoConstraints = false
         
         return checkmark
-        
     }()
     
     lazy var categoryImageView: UIImageView = {
         var imageView = UIImageView()
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
@@ -51,6 +54,7 @@ class CategoryViewCell: UICollectionViewCell {
     
     lazy var categoryLabel: UILabel = {
         var category = UILabel()
+        
         category.font = UIFont.boldSystemFont(ofSize: 15)
         category.textColor = .yellowLabel
         category.numberOfLines = 0
@@ -59,7 +63,6 @@ class CategoryViewCell: UICollectionViewCell {
         category.translatesAutoresizingMaskIntoConstraints = false
         
         return category
-        
     }()
     
     // MARK: - Init
@@ -90,6 +93,8 @@ class CategoryViewCell: UICollectionViewCell {
     
     // MARK: Private Methods
     private func setupConstraints() {
+        
+        // setup constraints to mainView
         NSLayoutConstraint.activate([
             mainView.topAnchor.constraint(equalTo: contentView.topAnchor),
             mainView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -98,6 +103,7 @@ class CategoryViewCell: UICollectionViewCell {
             mainView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
         
+        // setup constraints to circleView
         NSLayoutConstraint.activate([
             circleView.topAnchor.constraint(
                 equalTo: contentView.topAnchor,
@@ -109,9 +115,10 @@ class CategoryViewCell: UICollectionViewCell {
             ),
             circleView.heightAnchor.constraint(equalToConstant: 30),
             circleView.widthAnchor.constraint(equalToConstant: 30)
-
+            
         ])
         
+        // setup constraints to checkSymbol
         NSLayoutConstraint.activate([
             checkmarkSymbol.centerXAnchor.constraint(
                 equalTo: circleView.centerXAnchor
@@ -121,6 +128,7 @@ class CategoryViewCell: UICollectionViewCell {
             )
         ])
         
+        // setup constraints to categoryImageView
         NSLayoutConstraint.activate([
             categoryImageView.topAnchor.constraint(
                 equalTo: mainView.topAnchor,
@@ -133,6 +141,7 @@ class CategoryViewCell: UICollectionViewCell {
             categoryImageView.heightAnchor.constraint(equalToConstant: 60)
         ])
         
+        // setup constraints to categorylabel
         NSLayoutConstraint.activate([
             categoryLabel.topAnchor.constraint(
                 equalTo: categoryImageView.bottomAnchor,
@@ -150,10 +159,9 @@ class CategoryViewCell: UICollectionViewCell {
         ])
     }
     
+    // MARK: - Public Methods
     func setupViews(_ category: CategoryRules) {
         categoryImageView.image = UIImage(named: category.image)
         categoryLabel.text = category.name
     }
-    
-  
 }
