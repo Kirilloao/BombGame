@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController {
       label.text = displayName
     } else {
       label.text = "Мелодия 1"
-    }
+   }
     label.textColor = .purpleLabel
     label.font = .boldSystemFont(ofSize: 20)
     label.isUserInteractionEnabled = true
@@ -178,7 +178,7 @@ class SettingsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+
     navigationItem.title = "Настройки"
     subviews()
     setupConstraints()
@@ -289,33 +289,6 @@ class SettingsViewController: UIViewController {
     ])
   }
 
-  func setup() {
-    shortButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    shortButton.layer.cornerRadius = 20
-
-    normalButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    normalButton.layer.cornerRadius = 20
-    normalButton.backgroundColor = .yellowLabel
-    normalButton.setTitleColor(.purpleLabel, for: .normal)
-
-    longButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    longButton.layer.cornerRadius = 20
-    longButton.backgroundColor = .yellowLabel
-    longButton.setTitleColor(.purpleLabel, for: .normal)
-
-    randomButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    randomButton.layer.cornerRadius = 20
-    randomButton.backgroundColor = .yellowLabel
-    randomButton.setTitleColor(.purpleLabel, for: .normal)
-
-    taskSwitch.onTintColor = .purpleColor
-    taskSwitch.thumbTintColor = .yellowLabel
-
-    musicSwitch.onTintColor = .purpleColor
-    musicSwitch.thumbTintColor = .yellowLabel
-
-  }
-
   @objc func taskSwitchChanged(_ sender: UISwitch) {
     UserDefaultsManager.shared.taskSwitchState = sender.isOn
   }
@@ -339,6 +312,93 @@ class SettingsViewController: UIViewController {
     explosionPickerView.isHidden.toggle()
     audioPlayer?.stop()
   }
+
+    func setup() {
+        shortButton.addTarget(self, action: #selector(shortButtonPressed), for: .touchUpInside)
+        normalButton.addTarget(self, action: #selector(normalButtonPressed), for: .touchUpInside)
+        longButton.addTarget(self, action: #selector(longButtonPressed), for: .touchUpInside)
+        randomButton.addTarget(self, action: #selector(randomButtonPressed), for: .touchUpInside)
+        
+        shortButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        shortButton.layer.cornerRadius = 20
+        
+        normalButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        normalButton.layer.cornerRadius = 20
+        normalButton.backgroundColor = .yellowLabel
+        normalButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        longButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        longButton.layer.cornerRadius = 20
+        longButton.backgroundColor = .yellowLabel
+        longButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        randomButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        randomButton.layer.cornerRadius = 20
+        randomButton.backgroundColor = .yellowLabel
+        randomButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        taskSwitch.onTintColor = .purpleColor
+        taskSwitch.thumbTintColor = .yellowLabel
+        
+        musicSwitch.onTintColor = .purpleColor
+        musicSwitch.thumbTintColor = .yellowLabel
+    }
+    
+    @objc func shortButtonPressed() {
+        shortButton.backgroundColor = .purpleLabel
+        shortButton.setTitleColor(.yellowLabel, for: .normal)
+        
+        normalButton.backgroundColor = .yellowLabel
+        normalButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        longButton.backgroundColor = .yellowLabel
+        longButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        randomButton.backgroundColor = .yellowLabel
+        randomButton.setTitleColor(.purpleLabel, for: .normal)
+    }
+    
+    @objc func normalButtonPressed() {
+        normalButton.backgroundColor = .purpleLabel
+        normalButton.setTitleColor(.yellowLabel, for: .normal)
+        
+        shortButton.backgroundColor = .yellowLabel
+        shortButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        longButton.backgroundColor = .yellowLabel
+        longButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        randomButton.backgroundColor = .yellowLabel
+        randomButton.setTitleColor(.purpleLabel, for: .normal)
+    }
+    
+    @objc func longButtonPressed() {
+        longButton.backgroundColor = .purpleLabel
+        longButton.setTitleColor(.yellowLabel, for: .normal)
+        
+        normalButton.backgroundColor = .yellowLabel
+        normalButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        shortButton.backgroundColor = .yellowLabel
+        shortButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        randomButton.backgroundColor = .yellowLabel
+        randomButton.setTitleColor(.purpleLabel, for: .normal)
+    }
+    
+    @objc func randomButtonPressed() {
+        randomButton.backgroundColor = .purpleLabel
+        randomButton.setTitleColor(.yellowLabel, for: .normal)
+        
+        normalButton.backgroundColor = .yellowLabel
+        normalButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        longButton.backgroundColor = .yellowLabel
+        longButton.setTitleColor(.purpleLabel, for: .normal)
+        
+        shortButton.backgroundColor = .yellowLabel
+        shortButton.setTitleColor(.purpleLabel, for: .normal)
+    }
 }
 
 extension SettingsViewController: MusicPickerDelegate {
