@@ -9,27 +9,27 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
     
-    lazy var circleView: UIView = {
+    private lazy var circleView: UIView = {
         var circle = UIView()
+        
         circle.backgroundColor = .purpleColor
         circle.layer.borderColor = UIColor.black.cgColor
         circle.layer.borderWidth = 1
         circle.translatesAutoresizingMaskIntoConstraints = false
         
         return circle
-        
     }()
     
     lazy var mainLabel: UILabel = {
         var mainLabel = UILabel()
-        mainLabel.text = "В настройках игры можно задать время взрыва бомбы:"
         
+        mainLabel.text = "В настройках игры можно задать время взрыва бомбы:"
         mainLabel.textColor = .greyLabel
         mainLabel.font = UIFont.boldSystemFont(ofSize: 16.7)
         mainLabel.lineBreakMode = .byWordWrapping
         mainLabel.numberOfLines = 0
-        mainLabel.translatesAutoresizingMaskIntoConstraints = false
         mainLabel.textAlignment = .center
+        mainLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return mainLabel
         
@@ -41,9 +41,7 @@ class SettingsCell: UITableViewCell {
         contentView.addSubview(circleView)
         contentView.addSubview(mainLabel)
         
-        contentView.backgroundColor = .clear
         setupConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -58,6 +56,7 @@ class SettingsCell: UITableViewCell {
     
     // MARK: - Private Methods
     private func setupConstraints() {
+        
         // setup constraints to circleView
         NSLayoutConstraint.activate([
             circleView.topAnchor.constraint(
@@ -92,8 +91,8 @@ class SettingsCell: UITableViewCell {
         ])
     }
     
+    // MARK: - Public Methods
     func setupMainLabel(_ text: String) {
         mainLabel.text = text
     }
-    
 }

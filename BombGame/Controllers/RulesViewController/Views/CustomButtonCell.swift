@@ -10,8 +10,9 @@ import UIKit
 class CustomButtonCell: UITableViewCell {
     
     // MARK: - UI Properties
-    lazy var numberView: UIView = {
+    private lazy var numberView: UIView = {
         var view = UIView()
+        
         view.backgroundColor = #colorLiteral(red: 0.5838159919, green: 0.2887962759, blue: 0.7136611342, alpha: 1)
         view.layer.borderColor = UIColor.black.cgColor
         view.layer.borderWidth = 2
@@ -22,6 +23,7 @@ class CustomButtonCell: UITableViewCell {
     
     lazy var numberLabel: UILabel = {
         var number = UILabel()
+        
         number.textColor = #colorLiteral(red: 1, green: 0.8563113213, blue: 0, alpha: 1)
         number.font = UIFont.boldSystemFont(ofSize: 27)
         number.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +33,7 @@ class CustomButtonCell: UITableViewCell {
     
     lazy var ruleLabel: UILabel = {
         var rule = UILabel()
+        
         rule.textColor = .greyLabel
         rule.font = UIFont.boldSystemFont(ofSize: 16.7)
         rule.lineBreakMode = .byWordWrapping
@@ -40,8 +43,9 @@ class CustomButtonCell: UITableViewCell {
         return rule
     }()
     
-    lazy var startButton: CustomButton = {
+    private lazy var startButton: CustomButton = {
         var button = CustomButton(customTitle: "Старт Игры")
+        
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -68,13 +72,13 @@ class CustomButtonCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         numberView.layer.cornerRadius = numberView.frame.height / 2
-        numberView.clipsToBounds = true
         
         startButton.layer.cornerRadius = startButton.frame.height / 2
     }
     
     // MARK: - Private Methods
     private func setupConstraints() {
+        
         // setup constraints to numberView
         NSLayoutConstraint.activate([
             numberView.topAnchor.constraint(

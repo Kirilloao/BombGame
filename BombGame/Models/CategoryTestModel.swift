@@ -14,6 +14,7 @@ struct CategoryRules {
     static func getGategories() -> [CategoryRules] {
         
         var allCategories: [CategoryRules] = []
+        
         for (key, value) in categories {
             allCategories.append(CategoryRules(image: value, name: key))
         }
