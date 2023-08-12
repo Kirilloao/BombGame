@@ -347,7 +347,8 @@ class SettingsViewController: UIViewController {
     @objc func shortButtonPressed() {
         shortButton.backgroundColor = .purpleLabel
         shortButton.setTitleColor(.yellowLabel, for: .normal)
-        
+        UserDefaultsManager.shared.gameDuration = 10
+
         normalButton.backgroundColor = .yellowLabel
         normalButton.setTitleColor(.purpleLabel, for: .normal)
         
@@ -361,7 +362,8 @@ class SettingsViewController: UIViewController {
     @objc func normalButtonPressed() {
         normalButton.backgroundColor = .purpleLabel
         normalButton.setTitleColor(.yellowLabel, for: .normal)
-        
+        UserDefaultsManager.shared.gameDuration = 20
+
         shortButton.backgroundColor = .yellowLabel
         shortButton.setTitleColor(.purpleLabel, for: .normal)
         
@@ -375,6 +377,7 @@ class SettingsViewController: UIViewController {
     @objc func longButtonPressed() {
         longButton.backgroundColor = .purpleLabel
         longButton.setTitleColor(.yellowLabel, for: .normal)
+        UserDefaultsManager.shared.gameDuration = 45
         
         normalButton.backgroundColor = .yellowLabel
         normalButton.setTitleColor(.purpleLabel, for: .normal)
@@ -389,6 +392,8 @@ class SettingsViewController: UIViewController {
     @objc func randomButtonPressed() {
         randomButton.backgroundColor = .purpleLabel
         randomButton.setTitleColor(.yellowLabel, for: .normal)
+        let randomGameDuration = TimeInterval(Int.random(in: 10...45))
+        UserDefaultsManager.shared.gameDuration = randomGameDuration
         
         normalButton.backgroundColor = .yellowLabel
         normalButton.setTitleColor(.purpleLabel, for: .normal)

@@ -68,5 +68,23 @@ struct UserDefaultsManager {
           defaults.set(newValue, forKey: "musicSwitchState")
       }
   }
+
+  var gameDuration: TimeInterval {
+      get {
+        return defaults.double(forKey: "gameDuration")
+      }
+      set {
+          defaults.set(newValue, forKey: "gameDuration")
+      }
+  }
+
+  var questions: String {
+      get {
+        return defaults.string(forKey: "currentQuestion") ?? "Назовите цветок"
+      }
+      set {
+          defaults.set(newValue, forKey: "currentQuestion")
+      }
+  }
 }
 
