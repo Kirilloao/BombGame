@@ -27,7 +27,6 @@ class SettingsViewController: UIViewController {
   private lazy var gradientView: GradientView = {
     let gradientView = GradientView(frame: view.bounds)
     gradientView.translatesAutoresizingMaskIntoConstraints = false
-
     return gradientView
   }()
 
@@ -44,7 +43,7 @@ class SettingsViewController: UIViewController {
       label.text = displayName
     } else {
       label.text = "Мелодия 1"
-   }
+    }
     label.textColor = .purpleLabel
     label.font = .boldSystemFont(ofSize: 20)
     label.isUserInteractionEnabled = true
@@ -175,21 +174,20 @@ class SettingsViewController: UIViewController {
   let longButton = CustomButton(customTitle: "Длинное")
   let randomButton = CustomButton(customTitle: "Случайное")
 
-
+  //MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
 
     navigationItem.title = "Настройки"
     subviews()
     setupConstraints()
-    setup()
+    setupButtons()
+    updateUIWithSelectedGameDuration()
     taskSwitch.isOn = UserDefaultsManager.shared.taskSwitchState
     musicSwitch.isOn = UserDefaultsManager.shared.musicSwitchState
     musicPickerView.musicPickerDelegate = self
     tickPickerView.tickPickerDelegate = self
     explosionPickerView.explosionPickerDelegate = self
-    print(UserDefaultsManager.shared.taskSwitchState, UserDefaultsManager.shared.musicSwitchState, UserDefaultsManager.shared.fonMusic, UserDefaultsManager.shared.timerMusic,
-          UserDefaultsManager.shared.explosionMusic)
   }
 
   private func subviews() {
@@ -289,6 +287,7 @@ class SettingsViewController: UIViewController {
     ])
   }
 
+  //MARK: Funcs
   @objc func taskSwitchChanged(_ sender: UISwitch) {
     UserDefaultsManager.shared.taskSwitchState = sender.isOn
   }
@@ -296,7 +295,6 @@ class SettingsViewController: UIViewController {
   @objc func musicSwitchChanged(_ sender: UISwitch) {
     UserDefaultsManager.shared.musicSwitchState = sender.isOn
   }
-
 
   @objc private func selectedMusicLabelTapped() {
     musicPickerView.isHidden.toggle()
@@ -313,104 +311,73 @@ class SettingsViewController: UIViewController {
     audioPlayer?.stop()
   }
 
-    func setup() {
-        shortButton.addTarget(self, action: #selector(shortButtonPressed), for: .touchUpInside)
-        normalButton.addTarget(self, action: #selector(normalButtonPressed), for: .touchUpInside)
-        longButton.addTarget(self, action: #selector(longButtonPressed), for: .touchUpInside)
-        randomButton.addTarget(self, action: #selector(randomButtonPressed), for: .touchUpInside)
-        
-        shortButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        shortButton.layer.cornerRadius = 20
-        
-        normalButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        normalButton.layer.cornerRadius = 20
-        normalButton.backgroundColor = .yellowLabel
-        normalButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        longButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        longButton.layer.cornerRadius = 20
-        longButton.backgroundColor = .yellowLabel
-        longButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        randomButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        randomButton.layer.cornerRadius = 20
-        randomButton.backgroundColor = .yellowLabel
-        randomButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        taskSwitch.onTintColor = .purpleColor
-        taskSwitch.thumbTintColor = .yellowLabel
-        
-        musicSwitch.onTintColor = .purpleColor
-        musicSwitch.thumbTintColor = .yellowLabel
-    }
-    
-    @objc func shortButtonPressed() {
-        shortButton.backgroundColor = .purpleLabel
-        shortButton.setTitleColor(.yellowLabel, for: .normal)
-        UserDefaultsManager.shared.gameDuration = 10
+  func setupButtons() {
+    shortButton.addTarget(self, action: #selector(shortButtonPressed), for: .touchUpInside)
+    normalButton.addTarget(self, action: #selector(normalButtonPressed), for: .touchUpInside)
+    longButton.addTarget(self, action: #selector(longButtonPressed), for: .touchUpInside)
+    randomButton.addTarget(self, action: #selector(randomButtonPressed), for: .touchUpInside)
+    shortButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    shortButton.layer.cornerRadius = 20
 
-        normalButton.backgroundColor = .yellowLabel
-        normalButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        longButton.backgroundColor = .yellowLabel
-        longButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        randomButton.backgroundColor = .yellowLabel
-        randomButton.setTitleColor(.purpleLabel, for: .normal)
-    }
-    
-    @objc func normalButtonPressed() {
-        normalButton.backgroundColor = .purpleLabel
-        normalButton.setTitleColor(.yellowLabel, for: .normal)
-        UserDefaultsManager.shared.gameDuration = 20
+    normalButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    normalButton.layer.cornerRadius = 20
 
-        shortButton.backgroundColor = .yellowLabel
-        shortButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        longButton.backgroundColor = .yellowLabel
-        longButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        randomButton.backgroundColor = .yellowLabel
-        randomButton.setTitleColor(.purpleLabel, for: .normal)
-    }
-    
-    @objc func longButtonPressed() {
-        longButton.backgroundColor = .purpleLabel
-        longButton.setTitleColor(.yellowLabel, for: .normal)
-        UserDefaultsManager.shared.gameDuration = 45
-        
-        normalButton.backgroundColor = .yellowLabel
-        normalButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        shortButton.backgroundColor = .yellowLabel
-        shortButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        randomButton.backgroundColor = .yellowLabel
-        randomButton.setTitleColor(.purpleLabel, for: .normal)
-    }
-    
-    @objc func randomButtonPressed() {
-        randomButton.backgroundColor = .purpleLabel
-        randomButton.setTitleColor(.yellowLabel, for: .normal)
-        let randomGameDuration = TimeInterval(Int.random(in: 10...45))
-        UserDefaultsManager.shared.gameDuration = randomGameDuration
-        
-        normalButton.backgroundColor = .yellowLabel
-        normalButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        longButton.backgroundColor = .yellowLabel
-        longButton.setTitleColor(.purpleLabel, for: .normal)
-        
-        shortButton.backgroundColor = .yellowLabel
-        shortButton.setTitleColor(.purpleLabel, for: .normal)
-    }
+    longButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    longButton.layer.cornerRadius = 20
+
+    randomButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    randomButton.layer.cornerRadius = 20
+
+    taskSwitch.onTintColor = .purpleColor
+    taskSwitch.thumbTintColor = .yellowLabel
+
+    musicSwitch.onTintColor = .purpleColor
+    musicSwitch.thumbTintColor = .yellowLabel
+  }
+
+  private func updateUIWithSelectedGameDuration() {
+    let selectedDuration = UserDefaultsManager.shared.gameDuration
+
+    shortButton.backgroundColor = selectedDuration == 10 ? .purpleLabel : .yellowLabel
+    shortButton.setTitleColor(selectedDuration == 10 ? .yellowLabel : .purpleLabel, for: .normal)
+
+    normalButton.backgroundColor = selectedDuration == 20 ? .purpleLabel : .yellowLabel
+    normalButton.setTitleColor(selectedDuration == 20 ? .yellowLabel : .purpleLabel, for: .normal)
+
+    longButton.backgroundColor = selectedDuration == 45 ? .purpleLabel : .yellowLabel
+    longButton.setTitleColor(selectedDuration == 45 ? .yellowLabel : .purpleLabel, for: .normal)
+
+    randomButton.backgroundColor = selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .purpleLabel : .yellowLabel
+    randomButton.setTitleColor(selectedDuration != 10 && selectedDuration != 20 && selectedDuration != 45 ? .yellowLabel : .purpleLabel, for: .normal)
+  }
+
+  @objc func shortButtonPressed() {
+    UserDefaultsManager.shared.gameDuration = 10
+    updateUIWithSelectedGameDuration()
+  }
+
+  @objc func normalButtonPressed() {
+    UserDefaultsManager.shared.gameDuration = 20
+    updateUIWithSelectedGameDuration()
+  }
+
+  @objc func longButtonPressed() {
+    UserDefaultsManager.shared.gameDuration = 45
+    updateUIWithSelectedGameDuration()
+  }
+
+  @objc func randomButtonPressed() {
+    let randomGameDuration = TimeInterval(Int.random(in: 10...45))
+    UserDefaultsManager.shared.gameDuration = randomGameDuration
+    updateUIWithSelectedGameDuration()
+  }
 }
 
+//MARK: MusicPickerDelegate
 extension SettingsViewController: MusicPickerDelegate {
   func didSelectMusicValue(_ value: String) {
     selectedMusicLabel.text = value
     audioPlayer?.stop()
-
     var audioFileName = ""
 
     if value == "Мелодия 1" {
@@ -435,11 +402,11 @@ extension SettingsViewController: MusicPickerDelegate {
   }
 }
 
+//MARK: TickPickerDelegate
 extension SettingsViewController: TickPickerDelegate {
   func didSelectTickValue(_ value: String) {
     selectedTickLabel.text = value
     audioPlayer?.stop()
-
     var audioFileName = ""
 
     if value == "Таймер 1" {
@@ -464,11 +431,11 @@ extension SettingsViewController: TickPickerDelegate {
   }
 }
 
+//MARK: ExplosionPickerDelegate
 extension SettingsViewController: ExplosionPickerDelegate {
   func didSelectExplosionValue(_ value: String) {
     selectedExplosionLabel.text = value
     audioPlayer?.stop()
-
     var audioFileName = ""
 
     if value == "Взрыв 1" {

@@ -13,16 +13,16 @@ class CategoryViewContoller: UIViewController {
     gradientView.translatesAutoresizingMaskIntoConstraints = false
     return gradientView
   }()
-
+  
   private let collectionView = CategoryCollectionView()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     setSubviews()
     setConstraints()
   }
-
+  
   private func setSubviews(){
     view.addSubview(gradientView)
     view.addSubview(collectionView)

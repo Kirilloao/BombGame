@@ -39,7 +39,7 @@ class GameEndViewController: UIViewController {
   
   private lazy var descriptionTaskLabel: UILabel = {
     let label = createLabel(
-      with: punishment.getRandomPunishment(),
+      with: DataManager.shared.getRandomPunishment(),
       textColor: .purpleLabel,
       font: UIFont.boldSystemFont(ofSize: 20),
       lines: 0
@@ -61,7 +61,7 @@ class GameEndViewController: UIViewController {
   }()
   
   // MARK: - Private Properties
-  private let punishment = Punishment()
+  private let punishment = DataManager.shared.punishments
   
   // MARK: - Life Cycle Methods
   override func viewDidLoad() {
@@ -79,7 +79,7 @@ class GameEndViewController: UIViewController {
   
   // MARK: - Actions
   @objc private func changeQuestion() {
-    descriptionTaskLabel.text = punishment.getRandomPunishment()
+    descriptionTaskLabel.text = DataManager.shared.getRandomPunishment()
   }
   
   @objc private func resetGame() {

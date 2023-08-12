@@ -58,56 +58,56 @@ class CategoryCollectionView: UICollectionView {
 //MARK: UICollectionViewDataSource
 
 extension CategoryCollectionView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return images.count
+  }
+
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idCategoryCell, for: indexPath) as? CategoryCollectionViewCell else {
+      return UICollectionViewCell()
+    }
+    cell.categoryImage.image = images[indexPath.row]
+    cell.nameCategoryLabel.text = names[indexPath.row]
+
+    if DataManager.shared.arrSelectedIndex.contains(indexPath) {
+      cell.selectImage.tintColor = .black
+    } else {
+      cell.selectImage.tintColor = .white
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: idCategoryCell, for: indexPath) as? CategoryCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        cell.categoryImage.image = images[indexPath.row]
-        cell.nameCategoryLabel.text = names[indexPath.row]
-
-        if DataManager.shared.arrSelectedIndex.contains(indexPath) {
-            cell.selectImage.tintColor = .black
-        } else {
-            cell.selectImage.tintColor = .white
-        }
-
-        cell.layoutSubviews()
-        return cell
-    }
+    cell.layoutSubviews()
+    return cell
+  }
 }
 
 //MARK: - UICollectionViewDelegate
 extension CategoryCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      let strData = names[indexPath.item]
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    let strData = names[indexPath.item]
 
-      if DataManager.shared.arrSelectedIndex.contains(indexPath) {
-        DataManager.shared.arrSelectedIndex = DataManager.shared.arrSelectedIndex.filter { $0 != indexPath }
-        DataManager.shared.arrSelectedCategories = DataManager.shared.arrSelectedCategories.filter { $0 != strData }
-      } else {
-        DataManager.shared.arrSelectedIndex.append(indexPath)
-        DataManager.shared.arrSelectedCategories.append(strData)
-      }
+    if DataManager.shared.arrSelectedIndex.contains(indexPath) {
+      DataManager.shared.arrSelectedIndex = DataManager.shared.arrSelectedIndex.filter { $0 != indexPath }
+      DataManager.shared.arrSelectedCategories = DataManager.shared.arrSelectedCategories.filter { $0 != strData }
+    } else {
+      DataManager.shared.arrSelectedIndex.append(indexPath)
+      DataManager.shared.arrSelectedCategories.append(strData)
+    }
 
-      if DataManager.shared.arrSelectedIndex.isEmpty {
-        DataManager.shared.arrSelectedIndex.append(indexPath)
-        DataManager.shared.arrSelectedCategories.append(strData)
-      }
+    if DataManager.shared.arrSelectedIndex.isEmpty {
+      DataManager.shared.arrSelectedIndex.append(indexPath)
+      DataManager.shared.arrSelectedCategories.append(strData)
+    }
+    
+    UserDefaultsManager.shared.selectedCategories = DataManager.shared.arrSelectedCategories
 
-      UserDefaultsManager.shared.selectedCategories = DataManager.shared.arrSelectedCategories
-              
-      collectionView.reloadData()
+    collectionView.reloadData()
   }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
 
 extension CategoryCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 182, height: 178)
-    }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 182, height: 178)
+  }
 }

@@ -9,12 +9,6 @@ import UIKit
 import AVKit
 import AVFoundation
 
-enum GameState {
-  case idle
-  case playing
-  case paused
-}
-
 class GameViewController: UIViewController, AVAudioPlayerDelegate {
 
   var playerBG: AVAudioPlayer?
@@ -82,6 +76,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     return label
   }()
 
+  //MARK: Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationItem.title = "Игра"
@@ -99,6 +94,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     endGame()
   }
 
+  //MARK: Funcs
   private func subviews() {
     view.addSubview(gradientView)
     view.addSubview(textLabel)
@@ -139,6 +135,7 @@ class GameViewController: UIViewController, AVAudioPlayerDelegate {
     navigationItem.rightBarButtonItem = rightBarButton
   }
 
+  //MARK: State of game
   @objc func playButtonPressed() {
       if gameState == .idle || gameState == .paused {
           if shouldUpdateQuestion {

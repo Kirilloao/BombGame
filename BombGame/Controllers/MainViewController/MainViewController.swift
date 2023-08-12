@@ -132,14 +132,14 @@ class MainViewController: UIViewController {
   }
 
   @objc func continueButtonPressed() {
-      let gameVC = GameViewController()
-      if let savedQuestion = UserDefaults.standard.string(forKey: "currentQuestion") {
-          gameVC.textLabel.text = savedQuestion
-          gameVC.shouldUpdateQuestion = false
-      }
-      gameVC.setupGIFs()
-      gameVC.playButtonPressed()
-      navigationController?.pushViewController(gameVC, animated: true)
+    let gameVC = GameViewController()
+    if let savedQuestion = UserDefaults.standard.string(forKey: "currentQuestion") {
+      gameVC.textLabel.text = savedQuestion
+      gameVC.shouldUpdateQuestion = false
+    }
+    gameVC.setupGIFs()
+    gameVC.playButtonPressed()
+    navigationController?.pushViewController(gameVC, animated: true)
   }
 
   func setup() {
