@@ -55,7 +55,6 @@ class MainViewController: UIViewController {
     setup()
     subviews()
     setupConstraints()
-//    collectionView.selectDefaultCategory()
   }
 
   private func subviews() {
@@ -132,10 +131,22 @@ class MainViewController: UIViewController {
     navigationController?.pushViewController(settingsVC, animated: true)
   }
 
+  @objc func continueButtonPressed() {
+      let gameVC = GameViewController()
+      if let savedQuestion = UserDefaults.standard.string(forKey: "currentQuestion") {
+          gameVC.textLabel.text = savedQuestion
+          gameVC.shouldUpdateQuestion = false
+      }
+      gameVC.setupGIFs()
+      gameVC.playButtonPressed()
+      navigationController?.pushViewController(gameVC, animated: true)
+  }
+
   func setup() {
     startButton.addTarget(self, action: #selector(startButtonPressed), for: .touchUpInside)
     categoryButton.addTarget(self, action: #selector(categoryButtonPressed), for: .touchUpInside)
     rulesButton.addTarget(self, action: #selector(rulesButtonPressed), for: .touchUpInside)
     settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+    continueButton.addTarget(self, action: #selector(continueButtonPressed), for: .touchUpInside)
   }
 }

@@ -49,6 +49,7 @@
 		578BE8D42A85669600C0C0DF /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D32A85669600C0C0DF /* Constans.swift */; };
 		578BE8D82A86ABDE00C0C0DF /* CALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D72A86ABDE00C0C0DF /* CALayer.swift */; };
 		578BE8DA2A86AC0C00C0C0DF /* UiImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578BE8D92A86AC0C00C0C0DF /* UiImageView.swift */; };
+		579E19402A86C64700215FFC /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579E193F2A86C64700215FFC /* UserDefaults.swift */; };
 		C30A18832A82C71C00E8350E /* CustomRoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18822A82C71C00E8350E /* CustomRoundButton.swift */; };
 		C30A188A2A866DE700E8350E /* MusicPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A18892A866DE700E8350E /* MusicPickerView.swift */; };
 		C30A188C2A86C3CC00E8350E /* TickPickerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A188B2A86C3CC00E8350E /* TickPickerVIew.swift */; };
@@ -101,6 +102,7 @@
 		578BE8D32A85669600C0C0DF /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		578BE8D72A86ABDE00C0C0DF /* CALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayer.swift; sourceTree = "<group>"; };
 		578BE8D92A86AC0C00C0C0DF /* UiImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiImageView.swift; sourceTree = "<group>"; };
+		579E193F2A86C64700215FFC /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C30A18822A82C71C00E8350E /* CustomRoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundButton.swift; sourceTree = "<group>"; };
 		C30A18842A8558D000E8350E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C30A18892A866DE700E8350E /* MusicPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPickerView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			children = (
 				3CA0F0F62A8266EE005B64FA /* Punishment.swift */,
 				17A0FB2A2A83EB2A006A93B6 /* DataModeler.swift */,
+				579E193F2A86C64700215FFC /* UserDefaults.swift */,
 				3CA0F15D2A851D14005B64FA /* CategoryTestModel.swift */,
 				3CA0F15B2A851CF7005B64FA /* Rule.swift */,
 				578BE8D32A85669600C0C0DF /* Constans.swift */,
@@ -404,6 +407,7 @@
 				3CA0F1622A853AA1005B64FA /* CategoryCell.swift in Sources */,
 				57632A702A8061D800410D1C /* GameViewController.swift in Sources */,
 				17884B9E2A82B92800975BA6 /* CategoryCollectionViewCell.swift in Sources */,
+				579E19402A86C64700215FFC /* UserDefaults.swift in Sources */,
 				3CA0F16C2A863F7D005B64FA /* SettingsCell.swift in Sources */,
 				57632A502A805CF900410D1C /* MainViewController.swift in Sources */,
 				3CA0F0F72A8266EF005B64FA /* Punishment.swift in Sources */,
